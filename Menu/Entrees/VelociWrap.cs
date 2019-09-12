@@ -81,7 +81,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Removes cheese from the wrap
         /// </summary>
-        public void holdCheese()
+        public void HoldCheese()
         {
             this.cheese = false;
         }
