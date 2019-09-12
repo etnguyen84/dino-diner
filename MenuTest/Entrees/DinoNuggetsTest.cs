@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
+using DinoDiner.Menu.Entrees;
+
 
 namespace MenuTest.Entrees
 {
@@ -76,11 +78,11 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*7);
+            Assert.Equal((int) dn.Calories, 59*7);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*8);
+            Assert.Equal((int) dn.Calories, 59*8);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*9);
+            Assert.Equal((int) dn.Calories, 59*9);
         }
     }
 }
