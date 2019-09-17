@@ -9,7 +9,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for the TRexKingBurger with methods to affect ingredients
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// bool on the presence of a bun
@@ -52,19 +52,9 @@ namespace DinoDiner.Menu.Entrees
         private bool mayo = true;
 
         /// <summary>
-        /// Price value of the TRexKingBurger
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Calorie Count of the TRexKingBurger
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// Creates a list of ingredients for the burger, adding the ingredients to a list
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

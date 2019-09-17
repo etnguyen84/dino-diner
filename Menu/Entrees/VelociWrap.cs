@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for the VelociWrap item and choices of ingredients
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// bool on the presence of caesar dressing
@@ -29,19 +29,9 @@ namespace DinoDiner.Menu.Entrees
         private bool cheese = true;
 
         /// <summary>
-        /// Price value of the velociwrap item
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// Calorie count of the velociwrap
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// Creates a list of ingredients for the wrap, including tortilla, chicken, dressing, lettuce, and cheese
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

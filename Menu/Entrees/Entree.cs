@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace DinoDiner.Menu.Sides
+/* Entree.cs
+ * Author: Ethan Nguyen
+ */
+namespace DinoDiner.Menu.Entrees
 {
-
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
-    public abstract class Side
+    /// <summary>
+    /// Abstract class for an entree object with price, calories, and ingredient list
+    /// </summary>
+    public abstract class Entree
     {
         /// <summary>
         /// Gets and sets the price
@@ -20,19 +17,15 @@ namespace DinoDiner.Menu.Sides
         public double Price { get; set; }
 
         /// <summary>
-        /// Gets and sets the calories
+        /// Gets and sets the Calorie Count
         /// </summary>
         public uint Calories { get; set; }
 
         /// <summary>
-        /// Gets the ingredients list
+        /// Gets the ingredient list
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public abstract Size Size { get; set; }
 
     }
 }
