@@ -16,17 +16,29 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return Sweet;
+                return sweet;
             }
             set
             {
-                Sweet = value;
-                Size = size;
-                if (Sweet)
+                switch (size)
+                {
+                    case Size.Small:
+                        Calories = 8;
+                        break;
+                    case Size.Medium:
+                        Calories = 16;
+                        break;
+                    case Size.Large:
+                        Calories = 32;
+                        break;
+                }
+
+                sweet = value;
+                if (sweet)
                 {
                     Calories *= 2;
                 }
-            }
+             }
         }
 
         /// <summary>
@@ -38,6 +50,8 @@ namespace DinoDiner.Menu.Drinks
         /// private Size property for the drink
         /// </summary>
         private Size size;
+
+        private bool sweet;
 
         /// <summary>
         /// Constructor for the TyrannoTea drink, default sets to a small drink
@@ -66,7 +80,6 @@ namespace DinoDiner.Menu.Drinks
                 if (Sweet)
                 {
                     ingredients.Add("Cane Sugar");
-                    Calories *= 2;
                 }
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
@@ -90,17 +103,17 @@ namespace DinoDiner.Menu.Drinks
                     case Size.Small:
                         Price = 0.99;
                         Calories = 8;
-                        Sweet = Sweet;
+                        Sweet = sweet;
                         break;
                     case Size.Medium:
                         Price = 1.49;
                         Calories = 16;
-                        Sweet = Sweet;
+                        Sweet = sweet;
                         break;
                     case Size.Large:
                         Price = 1.99;
                         Calories = 32;
-                        Sweet = Sweet;
+                        Sweet = sweet;
                         break;
                 }
             }

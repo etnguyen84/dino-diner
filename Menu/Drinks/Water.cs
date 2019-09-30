@@ -42,7 +42,7 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Water", "Tea" };
+                List<string> ingredients = new List<string>() { "Water" };
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
