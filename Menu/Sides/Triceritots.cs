@@ -4,7 +4,7 @@ using System.Text;
 /* Triceritots.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the triceritots side dish and ways to get information about the dish
@@ -64,6 +64,15 @@ namespace DinoDiner.Menu.Sides
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the size and name of the side item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Triceritots";
         }
 
     }

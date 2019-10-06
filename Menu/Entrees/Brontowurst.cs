@@ -6,7 +6,7 @@ using System.Text;
  * Author: Ethan Nguyen
  */
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Brontowurst menu item class
@@ -64,6 +64,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onions = false;
+        }
+
+        /// <summary>
+        /// returns the entree item name
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
 
     }

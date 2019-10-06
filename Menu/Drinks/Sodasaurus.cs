@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// enum that has options for different soda flavors for the drink
@@ -81,6 +81,20 @@ namespace DinoDiner.Menu.Drinks
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the size, characteristics, and name of the drink item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Size.ToString() + " ");
+            sb.Append(Flavor.ToString() + " ");
+            sb.Append("Sodasaurus");
+
+            return sb.ToString();
         }
 
     }

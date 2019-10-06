@@ -4,7 +4,7 @@ using System.Text;
 /* MezzorellaSticks.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the mezzorella sticks side dish
@@ -61,6 +61,15 @@ namespace DinoDiner.Menu.Sides
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the size and name of the side item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Mezzorella Sticks";
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 /* MeteorMacAndCheese.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class MeteorMacAndCheese : Side
     {
@@ -59,6 +59,14 @@ namespace DinoDiner.Menu.Sides
                         break;
                 }
             }
+        }
+        /// <summary>
+        /// Returns the size and name of the side item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Meteor Mac and Cheese";
         }
 
     }

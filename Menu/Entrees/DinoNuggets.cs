@@ -6,7 +6,7 @@ using System.Text;
  * Author: Ethan Nguyen
  */
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the DinoNuggets menu item
@@ -58,6 +58,15 @@ namespace DinoDiner.Menu.Entrees
             this.Ingredients.Add("Chicken Nugget");
             this.Price += .25;
             this.Calories += 59;
+        }
+
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

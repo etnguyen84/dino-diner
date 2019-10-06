@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// class for a water drink that includes properties for size, price, and calories, as well as a method to add lemon
@@ -68,6 +68,18 @@ namespace DinoDiner.Menu.Drinks
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the size, characteristics, and name of the drink item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Size.ToString() + " Water");
+
+            return sb.ToString();
         }
 
     }

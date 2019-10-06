@@ -6,7 +6,7 @@ using System.Text;
  * Author: Ethan Nguyen
  */
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the 1/2 lb Steakosaurus Burger
@@ -90,6 +90,13 @@ namespace DinoDiner.Menu.Entrees
             this.mustard = false;
         }
 
-
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
+        }
     }
 }

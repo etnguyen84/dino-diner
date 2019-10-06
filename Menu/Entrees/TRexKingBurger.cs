@@ -4,7 +4,7 @@ using System.Text;
 /* TRexKingBurger.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the TRexKingBurger with methods to affect ingredients
@@ -142,6 +142,14 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMayo()
         {
             this.mayo = false;
+        }
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }
