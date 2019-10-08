@@ -1,10 +1,16 @@
 ﻿using Xunit;
-using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// Class for unit tests for sodasaurus class
+    /// </summary>
     public class SodasaurusTest
     {
+        /// <summary>
+        /// Check default price
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
@@ -12,6 +18,9 @@ namespace MenuTest.Drinks
             Assert.Equal(1.50, soda.Price, 2);
         }
 
+        /// <summary>
+        /// check default calories
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
@@ -19,6 +28,9 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(112, soda.Calories);
         }
 
+        /// <summary>
+        /// check default ice
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultIce()
         {
@@ -26,6 +38,9 @@ namespace MenuTest.Drinks
             Assert.Equal<bool>(true, soda.Ice);
         }
 
+        /// <summary>
+        /// check correct ingredients in list
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectIngedients()
         {
@@ -36,6 +51,9 @@ namespace MenuTest.Drinks
             Assert.Equal<int>(3, soda.Ingredients.Count);
         }
 
+        /// <summary>
+        /// check correct default size
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultSize()
         {
@@ -43,6 +61,9 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Small, soda.Size);
         }
 
+        /// <summary>
+        /// check correct medium price
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectPriceForMedium()
         {
@@ -51,6 +72,9 @@ namespace MenuTest.Drinks
             Assert.Equal(2.00, soda.Price, 2);
         }
 
+        /// <summary>
+        /// check correct medium calorie count
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectCaloriesForMedium()
         {
@@ -59,6 +83,9 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(156, soda.Calories);
         }
 
+        /// <summary>
+        /// check correct medium size
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetSizeToMedium()
         {
@@ -67,6 +94,9 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Medium, soda.Size);
         }
 
+        /// <summary>
+        /// check correct price for large size
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectPriceForLarge()
         {
@@ -75,6 +105,9 @@ namespace MenuTest.Drinks
             Assert.Equal(2.50, soda.Price, 2);
         }
 
+        /// <summary>
+        ///  check correct large calorie count
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectCaloriesForLarge()
         {
@@ -83,6 +116,9 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(208, soda.Calories);
         }
 
+        /// <summary>
+        /// check ability to set size to large
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetSizeToLarge()
         {
@@ -91,14 +127,20 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Large, soda.Size);
         }
 
+        /// <summary>
+        /// check ability to set ice to false
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetIceToFalse()
         {
             Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
-            Assert.Equal<bool>(false, soda.Ice);
+            Assert.False(soda.Ice);
         }
 
+        /// <summary>
+        /// check ability to set flavors
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavors()
         {

@@ -3,7 +3,7 @@
 /* PrehistoricPBJ.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// PrehistoricPBJ menu item dish
@@ -51,6 +51,14 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }
