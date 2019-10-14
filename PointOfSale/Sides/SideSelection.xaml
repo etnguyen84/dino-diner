@@ -11,23 +11,43 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="170"/>
+                <Setter Property="Height" Value="140"/>
             </Style>
         </WrapPanel.Resources>
-        <Button >Fryceritops</Button>
-        <Button >Triceritots</Button>
-        <Button >Meteor Mac &amp; Cheese</Button>
-        <Button >Mozzarella Sticks</Button>
+        <Button >
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-08.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Fryceritops</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button >
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-11.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Triceritots</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button >
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-09.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Meteor Mac &amp; Cheese</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button >
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-10.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Mezzorella Sticks</TextBlock>
+            </StackPanel>
+        </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Viewbox Height="20" Margin="10">
-                <RadioButton Width="135" >Small</RadioButton>
+                <RadioButton GroupName ="size"  Width="85" >Small</RadioButton>
             </Viewbox>
             <Viewbox Height="20" Margin="10" >
-                <RadioButton Width="135">Medium</RadioButton>
+                <RadioButton GroupName ="size" Width="85">Medium</RadioButton>
             </Viewbox>
             <Viewbox Height="20" Margin="10">
-                <RadioButton Width="135">Large</RadioButton>
+                <RadioButton GroupName ="size" Width="85">Large</RadioButton>
             </Viewbox>
         </StackPanel>
 

@@ -143,21 +143,51 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="entreeImgs\DinoDiner-01.png" />
-    <Resource Include="entreeImgs\DinoDiner-02.png" />
-    <Resource Include="entreeImgs\DinoDiner-03.png" />
-    <Resource Include="entreeImgs\DinoDiner-04.png" />
-    <Resource Include="entreeImgs\DinoDiner-05.png" />
-    <Resource Include="entreeImgs\DinoDiner-06.png" />
-    <Resource Include="entreeImgs\DinoDiner-07.png" />
-    <Resource Include="entreeImgs\DinoDiner-08.png" />
-    <Resource Include="entreeImgs\DinoDiner-09.png" />
-    <Resource Include="entreeImgs\DinoDiner-10.png" />
-    <Resource Include="entreeImgs\DinoDiner-11.png" />
-    <Resource Include="entreeImgs\DinoDiner-12.png" />
-    <Resource Include="entreeImgs\DinoDiner-13.png" />
-    <Resource Include="entreeImgs\DinoDiner-14.png" />
-    <Resource Include="entreeImgs\DinoDiner-15.png" />
+    <Resource Include="entreeImgs\DinoDiner-01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

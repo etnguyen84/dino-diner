@@ -10,18 +10,53 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="150"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="170"/>
+                <Setter Property="Height" Value="140"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst</Button>
-        <Button>Steakosaurus Burger</Button>
-        <Button>T-Rex King Burger
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100"  Source="/entreeImgs/DinoDiner-01.png" Margin="10"/>
+                <TextBlock HorizontalAlignment="Center">Brontowurst</TextBlock>
+            </StackPanel>
         </Button>
-        <Button>Prehistoric PB&amp;J</Button>
-        <Button>Pterodactyl Wings</Button>
-        <Button>Veloci-Wrap</Button>
-        <Button>Dino-Nuggets</Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-05.png" Margin="10"/>
+                <TextBlock HorizontalAlignment="Center">Steakosaurus Burger</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-06.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">T-Rex King Burger</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-03.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Prehistoric PB&amp;J</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-04.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Pterodactyl Wings</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-07.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Veloci-wrap</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-02.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Dino-Nuggets</TextBlock>
+            </StackPanel>
+        </Button>
     </WrapPanel>
 </Page>
+
 

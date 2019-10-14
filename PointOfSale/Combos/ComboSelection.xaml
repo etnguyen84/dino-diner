@@ -11,16 +11,51 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="150"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="170"/>
+                <Setter Property="Height" Value="140"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click= "SelectCustomize">Brontowurst Combo</Button>
-        <Button Click= "SelectCustomize">Steakosaurus Burger Combo</Button>
-        <Button Click= "SelectCustomize">T-Rex King Burger Combo</Button>
-        <Button Click= "SelectCustomize">Prehistoric PB&amp;J Combo</Button>
-        <Button Click= "SelectCustomize">Pterodactyl Wings Combo</Button>
-        <Button Click= "SelectCustomize">Veloci-Wrap Combo</Button>
-        <Button Click= "SelectCustomize">Dino-Nuggets Combo</Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100"  Source="/entreeImgs/DinoDiner-01.png" Margin="10"/>
+                <TextBlock HorizontalAlignment="Center">Brontowurst Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-05.png" Margin="10"/>
+                <TextBlock HorizontalAlignment="Center">Steakosaurus Burger Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-06.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">T-Rex King Burger Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-03.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Prehistoric PB&amp;J Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-04.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Pterodactyl Wings Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-07.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Veloci-wrap Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click= "SelectCustomize">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-02.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Dino-Nuggets Combo</TextBlock>
+            </StackPanel>
+        </Button>
     </WrapPanel>
 </Page>

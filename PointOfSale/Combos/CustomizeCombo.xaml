@@ -24,13 +24,13 @@
         <Button Click="SelectDrinks" Grid.Column="1" Grid.Row="0">Drink: </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
             <Viewbox Height="40" Margin="10">
-                <RadioButton Width="63" >Small</RadioButton>
+                <RadioButton GroupName ="size" Width="63" >Small</RadioButton>
             </Viewbox>
             <Viewbox Height="40" Margin="10" >
-                <RadioButton Width="63">Medium</RadioButton>
+                <RadioButton GroupName ="size" Width="63">Medium</RadioButton>
             </Viewbox>
             <Viewbox Height="40" Margin="10">
-                <RadioButton Width="63">Large</RadioButton>
+                <RadioButton GroupName ="size" Width="63">Large</RadioButton>
             </Viewbox>
         </StackPanel>
     </Grid>

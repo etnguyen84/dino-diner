@@ -11,23 +11,43 @@
     <WrapPanel Name="wp">
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="170"/>
+                <Setter Property="Height" Value="140"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="SelectSodasaurus">Sodasaurus</Button>
-        <Button Click="SelectTyrannotea">Tyrannotea</Button>
-        <Button Click="SelectJurassicJava">Jurassic Java</Button>
-        <Button Click="SelectWater">Water</Button>
+        <Button Click="SelectSodasaurus">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-14.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Sodasaurus</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectTyrannotea">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-12.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Tyrannotea</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectJurassicJava">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-13.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Jurassic Java</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectWater">
+            <StackPanel>
+                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-15.png" Margin="10" />
+                <TextBlock HorizontalAlignment="Center">Water</TextBlock>
+            </StackPanel>
+        </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Viewbox Height="20" Margin="10">
-                <RadioButton GroupName ="size" Width="135" >Small</RadioButton>
+                <RadioButton GroupName ="size" Width="112.5" >Small</RadioButton>
             </Viewbox>
             <Viewbox Height="20" Margin="10" >
-                <RadioButton GroupName ="size" Width="135">Medium</RadioButton>
+                <RadioButton GroupName ="size" Width="112.5">Medium</RadioButton>
             </Viewbox>
             <Viewbox Height="20" Margin="10">
-                <RadioButton GroupName ="size" Width="135">Large</RadioButton>
+                <RadioButton GroupName ="size" Width="112.5">Large</RadioButton>
             </Viewbox>
         </StackPanel>
         <Button x:Name="uxlemon">Lemon</Button>
