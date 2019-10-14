@@ -1,0 +1,26 @@
+﻿<Page x:Class="PointOfSale.ComboSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ComboSelection">
+
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="150"/>
+            </Style>
+        </WrapPanel.Resources>
+        <Button Click= "SelectCustomize">Brontowurst Combo</Button>
+        <Button Click= "SelectCustomize">Steakosaurus Burger Combo</Button>
+        <Button Click= "SelectCustomize">T-Rex King Burger Combo</Button>
+        <Button Click= "SelectCustomize">Prehistoric PB&amp;J Combo</Button>
+        <Button Click= "SelectCustomize">Pterodactyl Wings Combo</Button>
+        <Button Click= "SelectCustomize">Veloci-Wrap Combo</Button>
+        <Button Click= "SelectCustomize">Dino-Nuggets Combo</Button>
+    </WrapPanel>
+</Page>

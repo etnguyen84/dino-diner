@@ -54,6 +54,29 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Sides\SideSelection.xaml.cs">
+      <DependentUpon>SideSelection.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Combos\ComboSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Combos\CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drinks\DrinkSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drinks\FlavorSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entrees\EntreeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,12 +85,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Combos\ComboSelection.xaml.cs">
+      <DependentUpon>ComboSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Combos\CustomizeCombo.xaml.cs">
+      <DependentUpon>CustomizeCombo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drinks\DrinkSelection.xaml.cs">
+      <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drinks\FlavorSelection.xaml.cs">
+      <DependentUpon>FlavorSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entrees\EntreeSelection.xaml.cs">
+      <DependentUpon>EntreeSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuCategorySelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sides\SideSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuCategorySelection.xaml.cs">
+      <DependentUpon>MenuCategorySelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,5 +142,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="entreeImgs\DinoDiner-01.png" />
+    <Resource Include="entreeImgs\DinoDiner-02.png" />
+    <Resource Include="entreeImgs\DinoDiner-03.png" />
+    <Resource Include="entreeImgs\DinoDiner-04.png" />
+    <Resource Include="entreeImgs\DinoDiner-05.png" />
+    <Resource Include="entreeImgs\DinoDiner-06.png" />
+    <Resource Include="entreeImgs\DinoDiner-07.png" />
+    <Resource Include="entreeImgs\DinoDiner-08.png" />
+    <Resource Include="entreeImgs\DinoDiner-09.png" />
+    <Resource Include="entreeImgs\DinoDiner-10.png" />
+    <Resource Include="entreeImgs\DinoDiner-11.png" />
+    <Resource Include="entreeImgs\DinoDiner-12.png" />
+    <Resource Include="entreeImgs\DinoDiner-13.png" />
+    <Resource Include="entreeImgs\DinoDiner-14.png" />
+    <Resource Include="entreeImgs\DinoDiner-15.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
