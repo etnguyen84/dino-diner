@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
+/* Author: Nathan Bean
+ * Class: PrehistoricPBJUnitTest.cs
+ */
 namespace MenuTest.Entrees
 {
+
     public class PrehistoricPBJUnitTest
     {
         [Fact]

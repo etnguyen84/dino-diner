@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
+/* Author: Ethan Nguyen
+ * Class: IMenuItem.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>

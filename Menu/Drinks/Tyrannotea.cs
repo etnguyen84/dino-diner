@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Tyrannotea.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -118,6 +120,55 @@ namespace DinoDiner.Menu
                 }
             }
         }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if(Sweet)
+                {
+                    specs.Add("Sweet");
+                }
+                else
+                {
+                    specs.Add("Non-Sweet");
+                }
+                if(Lemon)
+                {
+                    specs.Add("Add Lemon");
+                }
+                if(!Ice)
+                {
+                    specs.Add("Hold Ice");
+                }
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Size.ToString() + " ");
+                if (Sweet)
+                {
+                    sb.Append("Sweet ");
+                }
+
+                sb.Append("Tyrannotea");
+
+                return sb.ToString();
+            }
+        }
+
 
         /// <summary>
         /// Returns the size, characteristics, and name of the drink item

@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
-
+/* Author: Nathan Bean
+ * Class: MenuItemNamesTest.cs
+ */
 namespace MenuTest
 {
+    /// <summary>
+    /// checks all menu item names
+    /// </summary>
     public class MenuItemNamesTest
     {
         #region Entrees

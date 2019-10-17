@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Side.cs
+ */
 namespace DinoDiner.Menu
 {
 
@@ -12,7 +14,7 @@ namespace DinoDiner.Menu
         Large
     }
 
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -34,5 +36,14 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

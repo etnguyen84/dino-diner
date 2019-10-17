@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: CretaceousCombo.cs
+ */
 namespace DinoDiner.Menu
 {
 
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
         //Backing Variables
         private Size size;
@@ -73,6 +75,26 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Drink.Ingredients);
                 return ingredients;
             }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                return new string[] { };
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Entree.ToString() + " Combo");
+
+                return sb.ToString();
+            }
+            
         }
 
         /// <summary>

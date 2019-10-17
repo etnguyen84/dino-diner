@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Water.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -67,6 +69,34 @@ namespace DinoDiner.Menu
                         Calories = 0;
                         break;
                 }
+            }
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (Lemon) specs.Add("Add Lemon");
+                if (!Ice) specs.Add("Hold Ice");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Size.ToString() + " Water");
+
+                return sb.ToString();
             }
         }
 

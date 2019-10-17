@@ -34,6 +34,33 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!bun) specs.Add("Hold Whole Wheat Bun");
+                if (!peppers) specs.Add("Hold Peppers");
+                if (!onions) specs.Add("Hold Onion");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Brontowurst";
+            }
+        }
+
+        /// <summary>
         /// Constructs brontowurst item with set price and calories
         /// </summary>
         public Brontowurst()

@@ -59,6 +59,34 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!bun) specs.Add("Hold Whole Wheat Bun");
+                if (!pickle) specs.Add("Hold Pickle");
+                if (!ketchup) specs.Add("Hold Ketchup");
+                if (!mustard) specs.Add("Hold Mustard");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Steakosaurus Burger";
+            }
+        }
+
+        /// <summary>
         /// Removes the bun from the burger
         /// </summary>
         public void HoldBun()

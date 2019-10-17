@@ -1,24 +1,36 @@
 ﻿using Xunit;
 using DinoDiner.Menu;
-
+/* Author: Nathan Bean
+ * Class: MeteorMacAndCheeseTest.cs
+ */
 namespace MenuTest.Sides
 {
+    /// <summary>
+    /// Tests for Meteor Mac and Cheese side
+    /// </summary>
     public class MeteorMacAndCheeseTest
     {
+        /// <summary>
+        /// checks default price
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             Assert.Equal(0.99, mmc.Price, 2);
         }
-
+        /// <summary>
+        /// checks default calories
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             Assert.Equal<uint>(420, mmc.Calories);
         }
-
+        /// <summary>
+        /// checks correct ingredient list
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectIngedients()
         {
@@ -29,6 +41,9 @@ namespace MenuTest.Sides
             Assert.Equal<int>(3, mmc.Ingredients.Count);
         }
 
+        /// <summary>
+        /// checks correct default size
+        /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultSize()
         {
@@ -36,6 +51,9 @@ namespace MenuTest.Sides
             Assert.Equal<Size>(Size.Small, mmc.Size);
         }
 
+        /// <summary>
+        /// checks correct medium price
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectPriceForMedium()
         {
@@ -43,7 +61,9 @@ namespace MenuTest.Sides
             mmc.Size = Size.Medium;
             Assert.Equal(1.45, mmc.Price, 2);
         }
-
+        /// <summary>
+        /// checks medium calorie count
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectCaloriesForMedium()
         {
@@ -51,7 +71,9 @@ namespace MenuTest.Sides
             mmc.Size = Size.Medium;
             Assert.Equal<uint>(490, mmc.Calories);
         }
-
+        /// <summary>
+        /// checks setting size to medium
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetSizeToMedium()
         {
@@ -59,7 +81,9 @@ namespace MenuTest.Sides
             mmc.Size = Size.Medium;
             Assert.Equal<Size>(Size.Medium, mmc.Size);
         }
-
+        /// <summary>
+        /// checks large price
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectPriceForLarge()
         {
@@ -67,7 +91,9 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal(1.95, mmc.Price, 2);
         }
-
+        /// <summary>
+        /// checks calorie count for large
+        /// </summary>
         [Fact]
         public void ShouldUseCorrectCaloriesForLarge()
         {
@@ -75,7 +101,9 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal<uint>(520, mmc.Calories);
         }
-
+        /// <summary>
+        /// checks ability to set to large
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToSetSizeToLarge()
         {

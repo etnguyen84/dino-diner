@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: JurassicJava.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -48,6 +50,40 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (Ice) specs.Add("Add Ice");
+                if (!Decaf) specs.Add("Decaf");
+                if (RoomForCream) specs.Add("Leave Room For Cream");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Size.ToString() + " ");
+                if (Decaf)
+                {
+                    sb.Append("Decaf ");
+                }
+
+                sb.Append("Jurassic Java");
+                return sb.ToString();
+            }
         }
 
         /// <summary>

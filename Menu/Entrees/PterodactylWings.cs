@@ -25,6 +25,29 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Pterodactyl Wings";
+            }
+        }
 
         /// <summary>
         /// Constructor for Pterodactyl Wings with a set price and calories

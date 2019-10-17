@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Drink.cs
+ */
 namespace DinoDiner.Menu
 {
     /*public enum Size
@@ -11,7 +13,7 @@ namespace DinoDiner.Menu
         Large
     }*/
 
-    public abstract class Drink :IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         public double Price { get; set; }
 
@@ -33,6 +35,16 @@ namespace DinoDiner.Menu
         {
             this.Ice = false;
         }
+
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
 
     }
 }

@@ -41,6 +41,30 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                specs.Add(nuggets + " Total Nuggets");
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Dino-Nuggets";
+            }
+        }
+
+        /// <summary>
         /// Constructor for DinoNugget item with a set price and calories
         /// </summary>
         public DinoNuggets()
@@ -68,5 +92,7 @@ namespace DinoDiner.Menu
         {
             return "Dino-Nuggets";
         }
+
+        
     }
 }

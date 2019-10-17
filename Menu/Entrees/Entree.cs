@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for an entree object with price, calories, and ingredient list
     /// </summary>
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -26,6 +26,14 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public abstract string Description { get; }
 
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

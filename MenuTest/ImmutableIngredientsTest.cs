@@ -1,9 +1,14 @@
 ﻿using System;
 using Xunit;
 using DinoDiner.Menu;
-
+/* Author: Nathan Bean
+ * Class: ImmutableIngredientsTest.cs
+ */
 namespace MenuTest
 {
+    /// <summary>
+    /// checks all immutable ingredients
+    /// </summary>
     public class ImmutableIngredientsTest
     {
         [Theory]
@@ -22,6 +27,7 @@ namespace MenuTest
         [InlineData(typeof(Sodasaurus))]
         [InlineData(typeof(JurassicJava))]
         [InlineData(typeof(Water))]
+        
         public void IngredientsShouldBeImmutable(Type type)
         {
             IMenuItem item = (IMenuItem)Activator.CreateInstance(type);
