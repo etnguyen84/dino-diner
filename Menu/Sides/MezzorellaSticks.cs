@@ -4,7 +4,7 @@ using System.Text;
 /* MezzorellaSticks.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the mezzorella sticks side dish
@@ -60,6 +60,38 @@ namespace DinoDiner.Menu.Sides
                         Calories = 720;
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Returns the size and name of the side item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Mezzorella Sticks";
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return Size.ToString() + " Mezzorella Sticks";
             }
         }
     }

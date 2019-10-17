@@ -1,6 +1,8 @@
 ﻿using Xunit;
-using DinoDiner.Menu.Drinks;
-
+using DinoDiner.Menu;
+/* Author: Ethan Nguyen
+ * Class: WaterTest.cs
+ */
 namespace MenuTest.Drinks
 {
     /// <summary>

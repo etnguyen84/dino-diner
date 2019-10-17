@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace DinoDiner.Menu.Drinks
+/* Author: Ethan Nguyen
+ * Class: Drink.cs
+ */
+namespace DinoDiner.Menu
 {
-    public enum Size
+    /*public enum Size
     {
         Small,
         Medium,
         Large
-    }
-    public abstract class Drink
+    }*/
+
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         public double Price { get; set; }
 
@@ -32,6 +35,16 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Ice = false;
         }
+
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
 
     }
 }

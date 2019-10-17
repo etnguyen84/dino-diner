@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace DinoDiner.Menu.Drinks
+/* Author: Ethan Nguyen
+ * Class: Sodasaurus.cs
+ */
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// enum that has options for different soda flavors for the drink
@@ -81,6 +83,54 @@ namespace DinoDiner.Menu.Drinks
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                specs.Add(Flavor.ToString() + "Flavor");
+                if(!Ice)
+                {
+                    specs.Add("Hold Ice");
+                }
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Size.ToString() + " ");
+                sb.Append(Flavor.ToString() + " ");
+                sb.Append("Sodasaurus");
+
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Returns the size, characteristics, and name of the drink item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Size.ToString() + " ");
+            sb.Append(Flavor.ToString() + " ");
+            sb.Append("Sodasaurus");
+
+            return sb.ToString();
         }
 
     }

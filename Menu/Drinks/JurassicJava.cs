@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-namespace DinoDiner.Menu.Drinks
+/* Author: Ethan Nguyen
+ * Class: JurassicJava.cs
+ */
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for Jurassic Java drink that inherits from the drink class
@@ -49,6 +51,40 @@ namespace DinoDiner.Menu.Drinks
         {
             Ice = true;
         }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (Ice) specs.Add("Add Ice");
+                if (!Decaf) specs.Add("Decaf");
+                if (RoomForCream) specs.Add("Leave Room For Cream");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Size.ToString() + " ");
+                if (Decaf)
+                {
+                    sb.Append("Decaf ");
+                }
+
+                sb.Append("Jurassic Java");
+                return sb.ToString();
+            }
+        }
 
         /// <summary>
         /// Sets the ingredients for the drink and returns the list of ingredients
@@ -90,6 +126,23 @@ namespace DinoDiner.Menu.Drinks
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the size, characteristics, and name of the drink item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Size.ToString() + " ");
+            if (Decaf)
+            {
+                sb.Append("Decaf ");
+            }
+
+            sb.Append("Jurassic Java");
+            return sb.ToString();
         }
 
 

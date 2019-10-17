@@ -4,12 +4,12 @@ using System.Text;
 /* Entree.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Abstract class for an entree object with price, calories, and ingredient list
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -26,6 +26,14 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public abstract string Description { get; }
 
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

@@ -6,8 +6,7 @@ using System.Text;
  * Author: Ethan Nguyen
  */
 
-namespace DinoDiner.Menu.Entrees
-{
+namespace DinoDiner.Menu { 
     /// <summary>
     /// Class for the VelociWrap item and choices of ingredients
     /// </summary>
@@ -53,6 +52,33 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!dressing) specs.Add("Hold Caesar Dressing");
+                if (!lettuce) specs.Add("Hold Lettuce");
+                if (!cheese) specs.Add("Hold Parmesan");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Veloci-Wrap";
+            }
+        }
+
+        /// <summary>
         /// Removes dressing from the wrap
         /// </summary>
         public void HoldDressing()
@@ -74,6 +100,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
-{
+{/* Author: Nathan Bean
+ * Class: DinoNuggestUnitTest.cs
+ */
     public class DinoNuggetsUnitTest
     {
         [Fact]

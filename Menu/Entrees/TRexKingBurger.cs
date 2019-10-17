@@ -4,7 +4,7 @@ using System.Text;
 /* TRexKingBurger.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the TRexKingBurger with methods to affect ingredients
@@ -81,6 +81,38 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!bun) specs.Add("Hold Whole Wheat Bun");
+                if (!lettuce) specs.Add("Hold Lettuce");
+                if (!tomato) specs.Add("Hold Tomato");
+                if (!onion) specs.Add("Hold Onion");
+                if (!pickle) specs.Add("Hold Pickle");
+                if (!ketchup) specs.Add("Hold Ketchup");
+                if (!mustard) specs.Add("Hold Mustard");
+                if (!mayo) specs.Add("Hold Mayo");
+
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "T-Rex King Burger";
+            }
+        }
+        /// <summary>
         /// Removes bun from burger
         /// </summary>
         public void HoldBun()
@@ -142,6 +174,14 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMayo()
         {
             this.mayo = false;
+        }
+        /// <summary>
+        /// Returns name of the entree item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

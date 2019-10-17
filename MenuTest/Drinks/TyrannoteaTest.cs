@@ -1,6 +1,8 @@
 ﻿using Xunit;
-using DinoDiner.Menu.Drinks;
-
+using DinoDiner.Menu;
+/* Author: Ethan Nguyen
+ * Class: TyrannoteaTest.cs
+ */
 namespace MenuTest.Drinks
 {   
     /// <summary>
@@ -190,6 +192,18 @@ namespace MenuTest.Drinks
 
             Assert.Equal<uint>(32, tea.Calories);
         }
-
+        /// <summary>
+        /// check correct ingredient value
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectIngredientsWithLemonSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Contains<string>("Water", tea.Ingredients);
+            Assert.Contains<string>("Tea", tea.Ingredients);
+            Assert.Contains<string>("Cane Sugar", tea.Ingredients);
+            Assert.Contains<string>("Lemon", tea.Ingredients);
+            Assert.Equal<int>(4, tea.Ingredients.Count);
+        }
     }
 }

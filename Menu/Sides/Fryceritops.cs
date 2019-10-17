@@ -4,7 +4,7 @@ using System.Text;
 /* Fryceritops.cs
  * Author: Ethan Nguyen
  */
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the fryceritops side
@@ -65,5 +65,39 @@ namespace DinoDiner.Menu.Sides
                 }
             }
         }
+
+        /// <summary>
+        /// Returns the size and name of the side item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " Friceritops";
+        }
+
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return Size.ToString() + " Friceritops";
+            }
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
  * Author: Ethan Nguyen
  */
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Brontowurst menu item class
@@ -30,6 +30,33 @@ namespace DinoDiner.Menu.Entrees
                 if (onions) ingredients.Add("Onion");
 
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!bun) specs.Add("Hold Whole Wheat Bun");
+                if (!peppers) specs.Add("Hold Peppers");
+                if (!onions) specs.Add("Hold Onion");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// returns description of item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Brontowurst";
             }
         }
 
@@ -64,6 +91,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onions = false;
+        }
+
+        /// <summary>
+        /// returns the entree item name
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
 
     }
