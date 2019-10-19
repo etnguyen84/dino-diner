@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Author: Ethan Nguyen
  * Class: Tyrannotea.cs
@@ -40,7 +41,9 @@ namespace DinoDiner.Menu
                 {
                     Calories *= 2;
                 }
-             }
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Sweet");
+            }
         }
 
         /// <summary>
@@ -53,6 +56,9 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size;
 
+        /// <summary>
+        /// bool that represents whether the tea is sweet or not
+        /// </summary>
         private bool sweet;
 
         /// <summary>
@@ -69,6 +75,9 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChanged("Lemon");
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -118,6 +127,11 @@ namespace DinoDiner.Menu
                         Sweet = sweet;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+
+
             }
         }
         /// <summary>
@@ -148,27 +162,6 @@ namespace DinoDiner.Menu
                 return specs.ToArray();
             }
         }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(Size.ToString() + " ");
-                if (Sweet)
-                {
-                    sb.Append("Sweet ");
-                }
-
-                sb.Append("Tyrannotea");
-
-                return sb.ToString();
-            }
-        }
-
 
         /// <summary>
         /// Returns the size, characteristics, and name of the drink item

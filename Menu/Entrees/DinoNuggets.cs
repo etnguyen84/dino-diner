@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* DinoNuggets.cs
@@ -17,12 +18,6 @@ namespace DinoDiner.Menu
         /// Number of chicken nuggets in the order
         /// </summary>
         private uint nuggets = 6;
-
-        /// Price of the menu item
-        /// </summary>
-        public double Price { get; set; }
-
-
 
         /// <summary>
         /// Creates a list of ingredients filled with chicken nuggets
@@ -48,19 +43,12 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> specs = new List<string>();
-                specs.Add(nuggets + " Total Nuggets");
+                uint n = nuggets - 6;
+                if( n > 0)
+                {
+                    specs.Add(n + " Extra Nuggets");
+                }
                 return specs.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return "Dino-Nuggets";
             }
         }
 
@@ -82,6 +70,12 @@ namespace DinoDiner.Menu
             this.Ingredients.Add("Chicken Nugget");
             this.Price += .25;
             this.Calories += 59;
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
+
         }
 
         /// <summary>
@@ -92,7 +86,5 @@ namespace DinoDiner.Menu
         {
             return "Dino-Nuggets";
         }
-
-        
     }
 }

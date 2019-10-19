@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* Brontowurst.cs
@@ -50,17 +51,6 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return "Brontowurst";
-            }
-        }
-
-        /// <summary>
         /// Constructs brontowurst item with set price and calories
         /// </summary>
         public Brontowurst()
@@ -75,6 +65,9 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>
@@ -83,6 +76,9 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>
@@ -91,6 +87,9 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>

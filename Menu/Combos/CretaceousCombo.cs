@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 /* Author: Ethan Nguyen
  * Class: CretaceousCombo.cs
  */
@@ -9,20 +10,58 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem, IOrderItem
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         //Backing Variables
         private Size size;
 
+        private Entree entree;
+        private Side side;
+        private Drink drink;
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets and sets the entree
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree {
+            get
+            {
+                return entree;
+            }
+            set
+            {
+                //remove listener from old entree
+                //set entree to new entree
+                //add event listener to new entree
+                //entree.PropertyChanged += OnItemPropertyChanged();
+                entree = value;
+                NotifyOfPropertyChanged("Entree");
+                NotifyOfPropertyChanged("Special");
+            }
+        }
 
         /// <summary>
         /// Gets and sets the side
         /// </summary>
-        public Side Side { get; set; } = new Fryceritops();
+        public Side Side
+        {
+            get
+            {
+                return side;
+            }
+            set
+            {
+                //remove listener from old entree
+                //set entree to new entree
+                //add event listener to new entree
+                //entree.PropertyChanged += OnItemPropertyChanged();
+                side = value;
+                NotifyOfPropertyChanged("Entree");
+                NotifyOfPropertyChanged("Special");
+            }
+        } = new Fryceritops();
         /// <summary>
         /// Gets and sets the drink
         /// </summary>
@@ -81,7 +120,13 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return new string[] { };
+                List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.Description);
+                special.AddRange(Side.Special);
+                special.Add(Drink.Description);
+                special.AddRange(Drink.Special);
+                return special.ToArray();
             }
         }
 
@@ -104,6 +149,8 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+            this.Side = new Fryceritops();
+            this.Drink = new Sodasaurus();
         }
 
         /// <summary>
@@ -113,9 +160,32 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Entree.ToString() + " Combo");
+            sb.Append($"{Entree} Combo");
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Helper method that invokes a new propertychanged event
+        /// </summary>
+        /// <param name="propertyName"> property that is being changed</param>
+        public void NotifyOfPropertyChanged(string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Event listener for when entree/side/drink's property changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnItemPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged(args.PropertyName);
+            if(args.PropertyName != "Special" && args.PropertyName != "Calories" && args.PropertyName != "Price")
+            {
+                NotifyOfPropertyChanged("Special");
+            }
         }
     }
 }

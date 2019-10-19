@@ -21,7 +21,6 @@ namespace DinoDiner.Menu
         /// </summary>
         string Description { get; }
 
-
         /// <summary>
         /// Lets user get any special isntructions for the food instructions
         /// </summary>

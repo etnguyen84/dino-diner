@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* SteakosaurusBurger.cs
@@ -76,30 +77,25 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return "Steakosaurus Burger";
-            }
-        }
-
-        /// <summary>
         /// Removes the bun from the burger
         /// </summary>
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
-        
+
         /// <summary>
         /// Removes the pickle from the burger
         /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>
@@ -108,6 +104,9 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>
@@ -116,6 +115,9 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Author: Ethan Nguyen
  * Class: Sodasaurus.cs
@@ -43,6 +44,7 @@ namespace DinoDiner.Menu
             Calories = 112;
         }
 
+
         /// <summary>
         /// Sets the ingredients for the drink and returns the list of ingredients
         /// </summary>
@@ -82,6 +84,9 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -100,22 +105,6 @@ namespace DinoDiner.Menu
                 }
 
                 return specs.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(Size.ToString() + " ");
-                sb.Append(Flavor.ToString() + " ");
-                sb.Append("Sodasaurus");
-
-                return sb.ToString();
             }
         }
 

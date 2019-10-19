@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Author: Ethan Nguyen
  * Class: JurassicJava.cs
@@ -19,7 +20,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// bool to have the coffee be decaf or regular
         /// </summary>
-        public bool Decaf {get; set;}
+        public bool Decaf { get; set; }
 
         /// <summary>
         /// private size property
@@ -42,6 +43,9 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+            NotifyOfPropertyChanged("RoomForCream");
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -50,6 +54,9 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Ice");
+            NotifyOfPropertyChanged("Special");
+
         }
         /// <summary>
         /// Gets an array of special instructions
@@ -64,25 +71,6 @@ namespace DinoDiner.Menu
                 if (RoomForCream) specs.Add("Leave Room For Cream");
 
                 return specs.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(Size.ToString() + " ");
-                if (Decaf)
-                {
-                    sb.Append("Decaf ");
-                }
-
-                sb.Append("Jurassic Java");
-                return sb.ToString();
             }
         }
 
@@ -125,6 +113,9 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -144,7 +135,6 @@ namespace DinoDiner.Menu
             sb.Append("Jurassic Java");
             return sb.ToString();
         }
-
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 /* PrehistoricPBJ.cs
  * Author: Ethan Nguyen
@@ -53,22 +54,14 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return "Prehistoric PB&J";
-            }
-        }
-
-        /// <summary>
         /// Removes peanut butter from item
         /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
 
         /// <summary>
@@ -77,6 +70,9 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
         }
         /// <summary>
         /// Returns name of the entree item

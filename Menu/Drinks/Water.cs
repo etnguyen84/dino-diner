@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Author: Ethan Nguyen
  * Class: Water.cs
@@ -20,6 +21,7 @@ namespace DinoDiner.Menu
         /// bool that represents on whether the drink has lemon or not
         /// </summary>
         public bool Lemon { get; protected set; } = false;
+
         /// <summary>
         /// constructor for the water object, defaults to small
         /// </summary>
@@ -35,6 +37,10 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Lemon");
+            NotifyOfPropertyChanged("Special");
+
+
         }
 
         /// <summary>
@@ -69,6 +75,7 @@ namespace DinoDiner.Menu
                         Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
             }
         }
         /// <summary>
@@ -87,20 +94,6 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(Size.ToString() + " Water");
-
-                return sb.ToString();
-            }
-        }
-
-        /// <summary>
         /// Returns the size, characteristics, and name of the drink item
         /// </summary>
         /// <returns></returns>
@@ -111,6 +104,5 @@ namespace DinoDiner.Menu
 
             return sb.ToString();
         }
-
     }
 }

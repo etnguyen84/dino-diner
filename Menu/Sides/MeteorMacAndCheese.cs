@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* MeteorMacAndCheese.cs
  * Author: Ethan Nguyen
@@ -17,7 +18,6 @@ namespace DinoDiner.Menu
             Calories = 420;
             Price = 0.99;
         }
-
 
         /// <summary>
         /// Gets the list of ingredients
@@ -58,6 +58,10 @@ namespace DinoDiner.Menu
                         Calories = 520;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+
             }
         }
         /// <summary>
@@ -78,17 +82,6 @@ namespace DinoDiner.Menu
                 List<string> specs = new List<string>();
 
                 return specs.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return Size.ToString() + " Meteor Mac and Cheese";
             }
         }
     }

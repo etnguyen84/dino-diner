@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* MezzorellaSticks.cs
  * Author: Ethan Nguyen
@@ -20,7 +21,6 @@ namespace DinoDiner.Menu
             Price = 0.99;
             Calories = 540;
         }
-
 
         /// <summary>
         /// Gets the list of ingredients
@@ -60,6 +60,10 @@ namespace DinoDiner.Menu
                         Calories = 720;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+
             }
         }
 
@@ -84,15 +88,5 @@ namespace DinoDiner.Menu
             }
         }
 
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return Size.ToString() + " Mezzorella Sticks";
-            }
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Fryceritops.cs
  * Author: Ethan Nguyen
@@ -20,6 +21,7 @@ namespace DinoDiner.Menu
             Calories = 222;
             Price = 0.99;
         }
+
         /// <summary>
         /// Gets the list of ingredients for the fryceritops
         /// </summary>
@@ -63,6 +65,9 @@ namespace DinoDiner.Menu
                         Calories = 480;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -85,17 +90,6 @@ namespace DinoDiner.Menu
                 List<string> specs = new List<string>();
 
                 return specs.ToArray();
-            }
-        }
-
-        /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return Size.ToString() + " Friceritops";
             }
         }
 

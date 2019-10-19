@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* VelociWrap.cs
@@ -68,22 +69,14 @@ namespace DinoDiner.Menu {
         }
 
         /// <summary>
-        /// returns description of item
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return "Veloci-Wrap";
-            }
-        }
-
-        /// <summary>
         /// Removes dressing from the wrap
         /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChanged("dressing");
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -92,6 +85,9 @@ namespace DinoDiner.Menu {
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("lettuce");
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -100,6 +96,9 @@ namespace DinoDiner.Menu {
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChanged("cheese");
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
