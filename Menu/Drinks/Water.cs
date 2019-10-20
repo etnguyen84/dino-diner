@@ -37,9 +37,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
-            NotifyOfPropertyChanged("Lemon");
             NotifyOfPropertyChanged("Special");
-
 
         }
 

@@ -155,6 +155,49 @@ namespace MenuTest.Drinks
             }
         }
 
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescriptions(Size sz)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = sz;
+            foreach (SodasaurusFlavor sf in System.Enum.GetValues(typeof(SodasaurusFlavor)))
+            {
+                soda.Flavor = sf;
+                Assert.Equal($"{sz} {sf} Sodasaurus", soda.Description);
+            }
+        }
+
+        [Theory]
+        [InlineData(Size.Small, "Price", "Calories", "Size")]
+        [InlineData(Size.Medium, "Price", "Calories", "Size")]
+        [InlineData(Size.Large, "Price", "Calories", "Size")]
+        public void CheckSizePropertyChanges(Size sz, string prop1, string prop2, string prop3)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, prop1, () => soda.Size = sz);
+            Assert.PropertyChanged(soda, prop2, () => soda.Size = sz);
+            Assert.PropertyChanged(soda, prop3, () => soda.Size = sz);
+
+        }
+        [Fact]
+        public void HoldIceChangesSpecial()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Contains("Hold Ice", soda.Special);
+        }
+
+        [Fact]
+        public void HoldIceChangesNotifies()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.PropertyChanged(soda, "Special", () => soda.HoldIce());
+        }
+
 
     }
 }

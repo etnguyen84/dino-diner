@@ -57,6 +57,63 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Equal("Brontowurst", bw.Description);
+        }
+
+        [Fact]
+        public void HoldOnionShouldChangeSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            Assert.Contains<string>("Hold Onion", bw.Special);
+        }
+
+        [Fact]
+        public void HoldPeppersShouldChangeSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            Assert.Contains<string>("Hold Peppers", bw.Special);
+        }
+
+        [Fact]
+        public void HoldBunShouldChangeSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldBun();
+            Assert.Contains<string>("Hold Whole Wheat Bun", bw.Special);
+        }
+
+        [Fact]
+        public void HoldPeppersBunAndOnionShouldChangeSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            Assert.Contains<string>("Hold Peppers", bw.Special);
+            bw.HoldBun();
+            Assert.Contains<string>("Hold Whole Wheat Bun", bw.Special);
+            bw.HoldOnion();
+            Assert.Contains<string>("Hold Onion", bw.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        [InlineData("Ingredients")]
+        public void CheckAllNotifyPropertyChanges(string propertyName)
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, propertyName, () => bw.HoldOnion() );
+            Assert.PropertyChanged(bw, propertyName, () => bw.HoldPeppers());
+            Assert.PropertyChanged(bw, propertyName, () => bw.HoldBun());
+
+        }
+
+
     }
 
 }

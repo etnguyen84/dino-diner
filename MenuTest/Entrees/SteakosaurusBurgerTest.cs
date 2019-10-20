@@ -66,6 +66,80 @@ namespace MenuTest.Entrees
             sb.HoldMustard();
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
         }
+
+        [Fact]
+        public void HoldBunShouldChangeSpecialBun()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            Assert.Contains<string>("Hold Whole Wheat Bun", sb.Special);
+        }
+
+        [Fact]
+        public void HoldPickleShouldChangeSpecialPickle()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            Assert.Contains<string>("Hold Pickle", sb.Special);
+        }
+
+        [Fact]
+        public void HoldKetchupShouldChangeSpecialKetchup()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            Assert.Contains<string>("Hold Ketchup", sb.Special);
+        }
+
+        [Fact]
+        public void HoldMustardShouldChangeSpecialMustard()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldMustard();
+            Assert.Contains<string>("Hold Mustard", sb.Special);
+        }
+
+ 
+        [Fact]
+        public void HoldKetchupMustardShouldChangeSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            Assert.Contains<string>("Hold Ketchup", sb.Special);
+            sb.HoldMustard();
+            Assert.Contains<string>("Hold Mustard", sb.Special);
+        }
+
+        [Fact]
+        public void HoldPickleBunShouldChangeSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            Assert.Contains<string>("Hold Pickle", sb.Special);
+            sb.HoldBun();
+            Assert.Contains<string>("Hold Whole Wheat Bun", sb.Special);
+        }
+        [Theory]
+        [InlineData("Special")]
+        [InlineData("Ingredients")]
+        public void CheckAllNotifyPropertyChanges(string propertyName)
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, propertyName, () => sb.HoldBun());
+            Assert.PropertyChanged(sb, propertyName, () => sb.HoldPickle());
+            Assert.PropertyChanged(sb, propertyName, () => sb.HoldKetchup());
+            Assert.PropertyChanged(sb, propertyName, () => sb.HoldMustard());
+
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", sb.Description);
+        }
+
+
     }
 
 }

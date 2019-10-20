@@ -43,7 +43,6 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
-            NotifyOfPropertyChanged("RoomForCream");
             NotifyOfPropertyChanged("Special");
 
         }
@@ -54,7 +53,6 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
-            NotifyOfPropertyChanged("Ice");
             NotifyOfPropertyChanged("Special");
 
         }
@@ -67,7 +65,6 @@ namespace DinoDiner.Menu
             {
                 List<string> specs = new List<string>();
                 if (Ice) specs.Add("Add Ice");
-                if (!Decaf) specs.Add("Decaf");
                 if (RoomForCream) specs.Add("Leave Room For Cream");
 
                 return specs.ToArray();

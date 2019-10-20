@@ -37,8 +37,12 @@ namespace DinoDiner.Menu
                 //add event listener to new entree
                 //entree.PropertyChanged += OnItemPropertyChanged();
                 entree = value;
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Entree");
                 NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+
             }
         }
 
@@ -58,14 +62,34 @@ namespace DinoDiner.Menu
                 //add event listener to new entree
                 //entree.PropertyChanged += OnItemPropertyChanged();
                 side = value;
-                NotifyOfPropertyChanged("Entree");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Side");
                 NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+
             }
-        } = new Fryceritops();
+        } 
         /// <summary>
         /// Gets and sets the drink
         /// </summary>
-        public Drink Drink { get; set; } = new Sodasaurus();
+        public Drink Drink
+        {
+            get
+            {
+                return drink;
+            }
+            set
+            {
+                drink = value;
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Drink");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Ingredients");
+
+            }
+        }
         /// <summary>
         /// Gets the price of the combo
         /// </summary>
@@ -99,6 +123,12 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Drink");
+                NotifyOfPropertyChanged("Side");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Special");
             }
         }
         /// <summary>
@@ -115,7 +145,9 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Returns array of special instructions
+        /// </summary>
         public string[] Special
         {
             get
@@ -129,7 +161,9 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
-
+        /// <summary>
+        /// returns description of the combo
+        /// </summary>
         public string Description
         {
             get

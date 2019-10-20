@@ -109,5 +109,30 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescriptions(Size sz)
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = sz;
+            Assert.Equal($"{sz} Triceritots", tt.Description);
+        }
+
+        [Theory]
+        [InlineData(Size.Small, "Price", "Calories", "Size")]
+        [InlineData(Size.Medium, "Price", "Calories", "Size")]
+        [InlineData(Size.Large, "Price", "Calories", "Size")]
+        public void CheckAllNotifyPropertyChanges(Size sz, string prop1, string prop2, string prop3)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, prop1, () => tt.Size = sz);
+            Assert.PropertyChanged(tt, prop2, () => tt.Size = sz);
+            Assert.PropertyChanged(tt, prop3, () => tt.Size = sz);
+
+        }
+
     }
 }

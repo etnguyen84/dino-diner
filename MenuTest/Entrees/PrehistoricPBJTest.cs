@@ -57,6 +57,48 @@ namespace MenuTest.Entrees
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Equal("Prehistoric PB&J", pbj.Description);
         }
+
+        [Fact]
+        public void HoldJellyShouldChangeSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
+            Assert.Contains<string>("Hold Jelly", pbj.Special);
+        }
+
+        [Fact]
+        public void HoldPeanutButterShouldChangeSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            Assert.Contains<string>("Hold Peanut Butter", pbj.Special);
+        }
+    
+
+        [Fact]
+        public void HoldJellyPeanutButterShouldChangeSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
+            pbj.HoldPeanutButter();
+            Assert.Contains<string>("Hold Jelly", pbj.Special);
+            Assert.Contains<string>("Hold Peanut Butter", pbj.Special);
+
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        [InlineData("Ingredients")]
+        public void CheckAllNotifyPropertyChanges(string propertyName)
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, propertyName, () => pbj.HoldJelly());
+            Assert.PropertyChanged(pbj, propertyName, () => pbj.HoldPeanutButter());
+        }
+
+
+
     }
+
 
 }

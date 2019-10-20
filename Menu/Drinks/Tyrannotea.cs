@@ -42,7 +42,6 @@ namespace DinoDiner.Menu
                     Calories *= 2;
                 }
                 NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Sweet");
             }
         }
 
@@ -75,7 +74,6 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
-            NotifyOfPropertyChanged("Lemon");
             NotifyOfPropertyChanged("Special");
 
         }
@@ -142,14 +140,6 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> specs = new List<string>();
-                if(Sweet)
-                {
-                    specs.Add("Sweet");
-                }
-                else
-                {
-                    specs.Add("Non-Sweet");
-                }
                 if(Lemon)
                 {
                     specs.Add("Add Lemon");

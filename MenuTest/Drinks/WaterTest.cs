@@ -147,5 +147,68 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Lemon", water.Ingredients);
 
         }
+
+        [Fact]
+        public void LemonShouldNotify()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () => water.AddLemon());
+        }
+
+        [Fact]
+        public void HoldIceShouldNotify()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () => water.HoldIce());
+        }
+
+        [Fact]
+        public void LemonShouldAddSpecial()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            Assert.Contains<string>("Add Lemon", water.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldChangeSpecial()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            Assert.Contains<string>("Hold Ice", water.Special);
+        }
+
+        [Fact]
+        public void HoldLemonIceShouldChangeSpecial()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            Assert.Contains<string>("Hold Ice", water.Special);
+            water.AddLemon();
+            Assert.Contains<string>("Add Lemon", water.Special);
+        }
+
+        [Theory]
+        [InlineData(Size.Small, "Size")]
+        [InlineData(Size.Medium, "Size")]
+        [InlineData(Size.Large, "Size")]
+        public void CheckSizePropertyChanges(Size sz, string prop1)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, prop1, () => water.Size = sz);
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescriptions(Size sz)
+        {
+            Water water = new Water();
+            water.Size = sz;
+            Assert.Equal($"{sz} Water", water.Description);
+        }
+
     }
 }

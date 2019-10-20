@@ -125,5 +125,12 @@ namespace MenuTest.Entrees
                 dn.AddNugget();
             });
         }
+        
+        [Fact]
+        public void CorrectDescription()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", dn.Description);
+        }
     }
 }
