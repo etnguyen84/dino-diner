@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-
+/*
+ * Order.cs
+ * Author: Ethan Nguyen
+ */
 namespace DinoDiner.Menu
 {
     public class Order
@@ -62,10 +65,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// constructor for an order object, takes the taxRate for the order as a parameter
         /// </summary>
-        public Order(double taxRate = .10)
+        public Order()
         {
-            SalesTaxRate = taxRate;
-           
+            SalesTaxRate = .10;
         }
     }
 }
