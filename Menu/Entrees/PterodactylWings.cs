@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* PterodactylWings.cs
@@ -27,6 +28,19 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Constructor for Pterodactyl Wings with a set price and calories
         /// </summary>
         public PterodactylWings()
@@ -43,6 +57,5 @@ namespace DinoDiner.Menu
         {
             return "Pterodactyl Wings";
         }
-
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Water.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -18,6 +21,7 @@ namespace DinoDiner.Menu
         /// bool that represents on whether the drink has lemon or not
         /// </summary>
         public bool Lemon { get; protected set; } = false;
+
         /// <summary>
         /// constructor for the water object, defaults to small
         /// </summary>
@@ -33,6 +37,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -67,6 +73,21 @@ namespace DinoDiner.Menu
                         Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChanged("Size");
+            }
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (Lemon) specs.Add("Add Lemon");
+                if (!Ice) specs.Add("Hold Ice");
+
+                return specs.ToArray();
             }
         }
 
@@ -81,6 +102,5 @@ namespace DinoDiner.Menu
 
             return sb.ToString();
         }
-
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Xunit;
 using DinoDiner.Menu;
-
+/* Author: Ethan Nguyen
+ * Class: JurassicJavaTest.cs
+ */
 namespace MenuTest.Drinks
 {
     /// <summary>
@@ -146,5 +148,67 @@ namespace MenuTest.Drinks
             java.LeaveRoomForCream();
             Assert.True(java.RoomForCream);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescriptions(Size sz)
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = sz;
+            Assert.Equal($"{sz} Jurassic Java", java.Description);
+            java.Decaf = true;
+            Assert.Equal($"{sz} Decaf Jurassic Java", java.Description);
+        }
+
+        [Theory]
+        [InlineData(Size.Small, "Price", "Calories", "Size")]
+        [InlineData(Size.Medium, "Price", "Calories", "Size")]
+        [InlineData(Size.Large, "Price", "Calories", "Size")]
+        public void CheckSizePropertyChanges(Size sz, string prop1, string prop2, string prop3)
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, prop1, () => java.Size = sz);
+            Assert.PropertyChanged(java, prop2, () => java.Size = sz);
+            Assert.PropertyChanged(java, prop3, () => java.Size = sz);
+
+        }
+
+        [Fact]
+        public void RoomForCreamShouldChangeSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream();
+            Assert.Contains<string>("Leave Room For Cream", java.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldChangeSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Contains<string>("Add Ice", java.Special);
+        }
+
+        [Fact]
+        public void AddIceRoomForCreamShouldChangeSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Contains<string>("Add Ice", java.Special);
+            java.LeaveRoomForCream();
+            Assert.Contains<string>("Leave Room For Cream", java.Special);
+        }
+
+        [Fact]
+        public void IceAndCreamShouldNotifySpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () => java.AddIce());
+            Assert.PropertyChanged(java, "Special", () => java.LeaveRoomForCream());
+
+        }
+
     }
 }

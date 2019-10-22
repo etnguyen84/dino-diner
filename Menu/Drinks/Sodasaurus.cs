@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Sodasaurus.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -40,6 +43,7 @@ namespace DinoDiner.Menu
             Price = 1.50;
             Calories = 112;
         }
+
 
         /// <summary>
         /// Sets the ingredients for the drink and returns the list of ingredients
@@ -80,6 +84,27 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+            }
+        }
+
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                specs.Add(Flavor.ToString() + "Flavor");
+                if(!Ice)
+                {
+                    specs.Add("Hold Ice");
+                }
+
+                return specs.ToArray();
             }
         }
 

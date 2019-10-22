@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Tyrannotea.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -38,7 +41,8 @@ namespace DinoDiner.Menu
                 {
                     Calories *= 2;
                 }
-             }
+                NotifyOfPropertyChanged("Calories");
+            }
         }
 
         /// <summary>
@@ -51,6 +55,9 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size;
 
+        /// <summary>
+        /// bool that represents whether the tea is sweet or not
+        /// </summary>
         private bool sweet;
 
         /// <summary>
@@ -67,6 +74,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -116,6 +125,31 @@ namespace DinoDiner.Menu
                         Sweet = sweet;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+
+
+            }
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if(Lemon)
+                {
+                    specs.Add("Add Lemon");
+                }
+                if(!Ice)
+                {
+                    specs.Add("Hold Ice");
+                }
+
+                return specs.ToArray();
             }
         }
 

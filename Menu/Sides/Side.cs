@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: Side.cs
+ */
 namespace DinoDiner.Menu
 {
 
@@ -12,7 +15,7 @@ namespace DinoDiner.Menu
         Large
     }
 
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the price
@@ -34,5 +37,35 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// lets user get a description of the order item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// lets user get the special instructions for the order of the menu item
+        /// </summary>
+        public abstract string[] Special { get; }
+
+        /// <summary>
+        /// event handler for when a property is changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper method that invokes a new propertychanged event
+        /// </summary>
+        /// <param name="propertyName"> property that is being changed</param>
+        public void NotifyOfPropertyChanged(string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
     }
 }

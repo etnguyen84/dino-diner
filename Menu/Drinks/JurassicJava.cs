@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-
+/* Author: Ethan Nguyen
+ * Class: JurassicJava.cs
+ */
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -17,7 +20,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// bool to have the coffee be decaf or regular
         /// </summary>
-        public bool Decaf {get; set;}
+        public bool Decaf { get; set; }
 
         /// <summary>
         /// private size property
@@ -40,6 +43,8 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -48,6 +53,22 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Special");
+
+        }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (Ice) specs.Add("Add Ice");
+                if (RoomForCream) specs.Add("Leave Room For Cream");
+
+                return specs.ToArray();
+            }
         }
 
         /// <summary>
@@ -89,6 +110,9 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -108,7 +132,6 @@ namespace DinoDiner.Menu
             sb.Append("Jurassic Java");
             return sb.ToString();
         }
-
 
     }
 }

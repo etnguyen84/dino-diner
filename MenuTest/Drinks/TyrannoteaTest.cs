@@ -1,6 +1,8 @@
 ﻿using Xunit;
 using DinoDiner.Menu;
-
+/* Author: Ethan Nguyen
+ * Class: TyrannoteaTest.cs
+ */
 namespace MenuTest.Drinks
 {   
     /// <summary>
@@ -190,6 +192,98 @@ namespace MenuTest.Drinks
 
             Assert.Equal<uint>(32, tea.Calories);
         }
+        /// <summary>
+        /// check correct ingredient value
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectIngredientsWithLemonSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            tea.Sweet = true;
+            Assert.Contains<string>("Water", tea.Ingredients);
+            Assert.Contains<string>("Tea", tea.Ingredients);
+            Assert.Contains<string>("Cane Sugar", tea.Ingredients);
+            Assert.Contains<string>("Lemon", tea.Ingredients);
+            Assert.Equal<int>(4, tea.Ingredients.Count);
+        }
+
+        [Theory]
+        [InlineData(Size.Small, "Price", "Calories", "Size")]
+        [InlineData(Size.Medium, "Price", "Calories", "Size")]
+        [InlineData(Size.Large, "Price", "Calories", "Size")]
+        public void CheckSizePropertyChanges(Size sz, string prop1, string prop2, string prop3)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, prop1, () => tea.Size = sz);
+            Assert.PropertyChanged(tea, prop2, () => tea.Size = sz);
+            Assert.PropertyChanged(tea, prop3, () => tea.Size = sz);
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouldHaveCorrectDescriptions(Size sz)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = sz;
+            Assert.Equal($"{sz} Tyrannotea", tea.Description);
+            tea.Sweet = true;
+            Assert.Equal($"{sz} Sweet Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void SweetShouldNotify()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Calories", () => tea.Sweet = true);
+        }
+
+
+        [Fact]
+        public void LemonShouldNotify()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () => tea.AddLemon());
+        }
+
+        [Fact]
+        public void HoldIceShouldNotify()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () => tea.HoldIce());
+        }
+
+        [Fact]
+        public void LemonShouldAddSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Contains<string>("Add Lemon", tea.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldChangeSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Contains<string>("Hold Ice", tea.Special);
+        }
+
+        [Fact]
+        public void HoldLemonIceShouldChangeSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Contains<string>("Hold Ice", tea.Special);
+            tea.AddLemon();
+            Assert.Contains<string>("Add Lemon", tea.Special);
+        }
+
+
+
 
     }
 }

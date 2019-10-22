@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Triceritots.cs
  * Author: Ethan Nguyen
@@ -63,6 +64,10 @@ namespace DinoDiner.Menu
                         Calories = 590;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
+
             }
         }
 
@@ -74,6 +79,17 @@ namespace DinoDiner.Menu
         {
             return Size.ToString() + " Triceritots";
         }
+        /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
 
+                return specs.ToArray();
+            }
+        }
     }
 }

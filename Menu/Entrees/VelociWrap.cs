@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 /* VelociWrap.cs
@@ -52,11 +53,31 @@ namespace DinoDiner.Menu {
         }
 
         /// <summary>
+        /// Gets an array of special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> specs = new List<string>();
+                if (!dressing) specs.Add("Hold Caesar Dressing");
+                if (!lettuce) specs.Add("Hold Romaine Lettuce");
+                if (!cheese) specs.Add("Hold Parmesan Cheese");
+
+                return specs.ToArray();
+            }
+        }
+
+        /// <summary>
         /// Removes dressing from the wrap
         /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+
+
         }
 
         /// <summary>
@@ -65,6 +86,8 @@ namespace DinoDiner.Menu {
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
@@ -73,6 +96,8 @@ namespace DinoDiner.Menu {
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
