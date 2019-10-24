@@ -30,6 +30,47 @@ namespace PointOfSale
             }
         }
 
+
+        public SideSelection(Side side)
+        {
+            DataContext = side;
+   
+        }
+
+        void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                DataContext = side;
+                SetSelectedSide(side);
+            }
+        }
+
+        void SetSelectedSide(Side side)
+        {
+            switch (side.Size)
+            {
+                case DinoDiner.Menu.Size.Small:
+                    SmallButton.Background = new SolidColorBrush(Colors.LightBlue);
+                    MediumButton.ClearValue(Button.BackgroundProperty);
+                    LargeButton.ClearValue(Button.BackgroundProperty);
+                    break;
+
+                case DinoDiner.Menu.Size.Medium:
+                    MediumButton.Background = new SolidColorBrush(Colors.LightBlue);
+                    SmallButton.ClearValue(Button.BackgroundProperty);
+                    LargeButton.ClearValue(Button.BackgroundProperty);
+                    break;
+                case DinoDiner.Menu.Size.Large:
+                    LargeButton.Background = new SolidColorBrush(Colors.LightBlue);
+                    SmallButton.ClearValue(Button.BackgroundProperty);
+                    MediumButton.ClearValue(Button.BackgroundProperty);
+                    break;
+            }
+        }
+
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
             //Order order = DataContext as Order;
@@ -75,6 +116,8 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Small;
+                    SetSelectedSide(side);
+
                 }
             }
         }
@@ -85,6 +128,8 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Medium;
+                    SetSelectedSide(side);
+
                 }
             }
         }
@@ -96,6 +141,8 @@ namespace PointOfSale
                 if(CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Large;
+                    SetSelectedSide(side);
+
                 }
             }
         }
@@ -106,12 +153,7 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
-                    switch (side.Size)
-                    {
-                        //set rado to side.Size property
-                        //disable selection of new side
-
-                    }
+                    SetSelectedSide(side);
                 }
             }
         }

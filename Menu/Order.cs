@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 /*
- * Order.cs
- * Author: Ethan Nguyen
- */
+* Order.cs
+* Author: Ethan Nguyen
+*/
 namespace DinoDiner.Menu
 {
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         /// <summary>
         /// represents items added to the order
@@ -67,7 +69,31 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
+            this.Items.CollectionChanged += this.OnCollectionChanged;
             SalesTaxRate = .10;
         }
+        /// <summary>
+        /// event for when property is changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+        }
+
+        /// <summary>
+        /// Helper method that invokes a new propertychanged event
+        /// </summary>
+        /// <param name="propertyName"> property that is being changed</param>
+        public void NotifyOfPropertyChanged(string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+
+
     }
 }
