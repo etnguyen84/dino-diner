@@ -202,5 +202,19 @@
       <Name>Menu</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="entreeImgs\DinoDiner-16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="entreeImgs\DinoDiner-18.png" />
+    <Resource Include="entreeImgs\DinoDiner-19.png" />
+    <Resource Include="entreeImgs\DinoDiner-20.png" />
+    <Resource Include="entreeImgs\DinoDiner-21.png" />
+    <Resource Include="entreeImgs\DinoDiner-22.png" />
+    <Resource Include="entreeImgs\DinoDiner-23.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,14 +18,40 @@ namespace DinoDiner.Menu
     /// </summary>
     public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        private double price;
+        private uint calories;
+
         /// <summary>
-        /// getter and setter for pice
+        /// gets and sets price of drink.
         /// </summary>
-        public double Price { get; set; }
+        public double Price
+        {
+            get
+            {
+                return price;
+            }
+            set
+            {
+                price = value;
+                NotifyOfPropertyChanged("Price");
+            }
+        }
+
         /// <summary>
-        /// getter and setter for calories
+        /// gets and sets amount of calories in the drink.
         /// </summary>
-        public uint Calories { get; set; }
+        public uint Calories
+        {
+            get
+            {
+                return calories;
+            }
+            set
+            {
+                calories = value;
+                NotifyOfPropertyChanged("Calories");
+            }
+        }
         /// <summary>
         /// getter for ingredients list
         /// </summary>

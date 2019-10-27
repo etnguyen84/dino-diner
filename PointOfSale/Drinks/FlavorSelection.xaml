@@ -5,22 +5,32 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="600"
       Title="FlavorSelection">
-    
-    <WrapPanel>
-        <WrapPanel.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="150"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Margin" Value="5"/>
             </Style>
-        </WrapPanel.Resources>
-        <Button>Cherry</Button>
-        <Button>Chocolate</Button>
-        <Button>Cola</Button>
-        <Button>Lime</Button>
-        <Button>Orange</Button>
-        <Button>Root Beer</Button>
-        <Button>Vanilla</Button>
-    </WrapPanel>
+        </Grid.Resources>
+        <Button Click="SetCherry" Grid.Row="0" Grid.Column="0">Cherry</Button>
+        <Button Click="SetChocolate" Grid.Row="1" Grid.Column="0">Chocolate</Button>
+        <Button Click="SetCola" Grid.Row="2" Grid.Column="0">Cola</Button>
+        <Button Click="SetLime" Grid.Row="0" Grid.Column="1">Lime</Button>
+        <Button Click="SetOrange" Grid.Row="1" Grid.Column="1">Orange</Button>
+        <Button Click="SetRootBeer" Grid.Row="2" Grid.Column="1">Root Beer</Button>
+        <Button Click="SetVanilla" Grid.Row="0" Grid.Column="2">Vanilla</Button>
+    </Grid>
+
 </Page>

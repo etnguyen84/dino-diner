@@ -15,8 +15,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public MeteorMacAndCheese ()
         {
-            Calories = 420;
-            Price = 0.99;
+            size = Size.Small;
         }
 
         /// <summary>
@@ -58,8 +57,7 @@ namespace DinoDiner.Menu
                         Calories = 520;
                         break;
                 }
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Size");
 
             }

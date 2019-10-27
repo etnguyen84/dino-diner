@@ -13,6 +13,11 @@
             <ColumnDefinition Width="400" />
             <ColumnDefinition  />
         </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
         <Grid Grid.Column="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -25,25 +30,25 @@
 
             <Button Grid.Column="0" Grid.Row="0" Click="AddFryceritops">
                 <StackPanel>
-                    <Image Height="180" Width ="180" Source="/entreeImgs/DinoDiner-08.png" Margin="10" />
+                    <Image Height="170" Width ="170" Source="/entreeImgs/DinoDiner-08.png" Margin="10" />
                     <TextBlock HorizontalAlignment="Center"><Run Text="Fryceritops"/></TextBlock>
                 </StackPanel>
             </Button>
             <Button Grid.Column="1" Grid.Row="0" Click="AddTriceritots">
                 <StackPanel>
-                    <Image Height="180" Width ="180" Source="/entreeImgs/DinoDiner-11.png" Margin="10" />
+                    <Image Height="170" Width ="170" Source="/entreeImgs/DinoDiner-11.png" Margin="10" />
                     <TextBlock HorizontalAlignment="Center"><Run Text="Triceritots"/></TextBlock>
                 </StackPanel>
             </Button>
             <Button Grid.Column="0" Grid.Row="1" Click="AddMeteorMacAndCheese">
                 <StackPanel>
-                    <Image Height="180" Width ="180" Source="/entreeImgs/DinoDiner-09.png" Margin="10" />
+                    <Image Height="170" Width ="170" Source="/entreeImgs/DinoDiner-09.png" Margin="10" />
                     <TextBlock HorizontalAlignment="Center"><Run Text="Meteor Mac &amp; Cheese"/></TextBlock>
                 </StackPanel>
             </Button>
             <Button Grid.Column="1" Grid.Row="1" Click="AddMezzorellaSticks">
                 <StackPanel>
-                    <Image Height="180" Width ="180" Source="/entreeImgs/DinoDiner-10.png" Margin="10" />
+                    <Image Height="170" Width ="170" Source="/entreeImgs/DinoDiner-10.png" Margin="10" />
                     <TextBlock HorizontalAlignment="Center"><Run Text="Mezzorella Sticks"/></TextBlock>
                 </StackPanel>
             </Button>

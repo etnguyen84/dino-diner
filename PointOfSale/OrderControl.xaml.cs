@@ -20,14 +20,22 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        
+        /// <summary>
+        /// constructor for order control
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
-            MountItemListener();
+            //MountItemListener();
         }
-
+        /// <summary>
+        /// allows user to navigate to other pages
+        /// </summary>
         public NavigationService NavigationService { get; set; }
-
+        /// <summary>
+        /// listener for hwen collection is changed
+        /// </summary>
         private void MountItemListener()
         {
             if (DataContext is Order order)
@@ -36,6 +44,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// event whenever collection is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnCollectionChanged(object sender, EventArgs args)
         {
 
@@ -55,16 +68,48 @@ namespace PointOfSale
             }
         } 
         
+        /// <summary>
+        /// event whenever selected item is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnSelectionChanged(object sender, EventArgs args)
         {
+            
             if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
+            } 
+            else if (OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection(drink));
+
+            }
+            else if (OrderItems.SelectedItem is Entree entree)
+            {
+                NavigationService?.Navigate(new EntreeSelection(entree));
+
             }
         }
+        /// <summary>
+        /// event for when data context is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            MountItemListener();
+            //MountItemListener();
         }
-    }
+        public void CheckItems(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                Console.WriteLine(CollectionViewSource.GetDefaultView(order.Items).CurrentItem);
+
+            }
+
+        }
+
+        
+    } 
 }

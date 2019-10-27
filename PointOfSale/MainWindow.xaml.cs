@@ -24,6 +24,7 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            /*
             Order order = DataContext as Order;
             if(order != null)
             {
@@ -38,7 +39,7 @@ namespace PointOfSale
                 order.Items.Add(sb);
                 
 
-            }
+            }*/
         }
 
         private void PassOnDataContext()

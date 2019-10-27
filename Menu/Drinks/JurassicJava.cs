@@ -20,7 +20,18 @@ namespace DinoDiner.Menu
         /// <summary>
         /// bool to have the coffee be decaf or regular
         /// </summary>
-        public bool Decaf { get; set; }
+        public bool Decaf { 
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
+        private bool decaf = false;
 
         /// <summary>
         /// private size property
@@ -33,8 +44,7 @@ namespace DinoDiner.Menu
         public JurassicJava()
         {
             Ice = false;
-            Price = .59;
-            Calories = 2;
+            size = Size.Small;
         }
 
         /// <summary>
@@ -110,8 +120,7 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Size");
             }
         }

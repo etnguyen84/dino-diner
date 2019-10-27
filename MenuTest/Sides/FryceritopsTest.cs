@@ -141,5 +141,50 @@ namespace MenuTest.Sides
         }
 
 
+
+
+
+
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void FryceritopsDescriptionTest(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = size;
+            Assert.Equal($"{size} Fryceritops", ft.Description);
+        }
+
+        [Fact]
+        public void FryceritopsSpecialsTest()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
+
+        [Fact]
+        public void FryceritopsNotifyPropertyChangedTest()
+        {
+            Fryceritops ft = new Fryceritops();
+
+           /* Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Price = 10;
+            });
+            Assert.PropertyChanged(ft, "Calories", () =>
+            {
+                ft.Calories = 10;
+            });*/
+
+            string[] sizeProperties = { "Size", "Price", "Calories", "Description" };
+            foreach (string property in sizeProperties)
+                Assert.PropertyChanged(ft, property, () =>
+                {
+                    ft.Size = Size.Large;
+                });
+        }
     }
 }

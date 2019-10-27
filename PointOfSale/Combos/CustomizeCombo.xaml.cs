@@ -15,25 +15,36 @@ using System.Windows.Shapes;
 
 namespace PointOfSale
 {
+    /* CustomizeCombo.xaml.cs
+    * Author:EthanNguyen
+    */
     /// <summary>
     /// Interaction logic for CustomizeCombo.xaml
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        /// <summary>
+        /// constructor for customize combo
+        /// </summary>
         public CustomizeCombo()
         {
             InitializeComponent();
         }
 
-        public CustomizeCombo(string side, string drink, string size)
-        {
-            InitializeComponent();
-
-        }
+        /// <summary>
+        /// navigate to side selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SelectSides(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new SideSelection());
         }
+        /// <summary>
+        /// navigate to select drinks page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SelectDrinks(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection());

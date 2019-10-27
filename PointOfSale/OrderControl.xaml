@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
+             d:DesignHeight="500" d:DesignWidth="200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,15 +28,20 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <ListBox ItemsSource="{Binding Path=Special}" Grid.Row="1" Grid.ColumnSpan ="2" BorderBrush="White" />
+                        </StackPanel>
                         <Button Click="OnRemoveOrderItem" Grid.Column= "1">X</Button>
-                       <!-- <ListBox Grid.Row ="1" Grid.ColumnSpan="2" BorderBrush="White"  ItemsSource="{Binding Path=Special}" /> -->
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate></ListBox>
-        <TextBlock Text="#" Grid.Row="2" TextAlignment="Center" FontWeight="Bold"/>
-        <TextBlock Text="{Binding Path=SubtotalCost, StringFormat=N2}" TextAlignment="Center" Grid.Row="2" Grid.Column="2" FontWeight="Bold"/>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="#" Grid.Row="2" TextAlignment="Left" FontWeight="Bold"/>
+        <TextBlock Text="$" Grid.Row="2" Grid.Column="2" TextAlignment="Left" FontWeight="Bold"/>
+        <TextBlock Text= "{Binding Path=SubtotalCost, StringFormat=N2}" TextAlignment="Center" Grid.Row="2" Grid.Column="2" FontWeight="Bold"/>
         <Button Grid.Row="3">Cancel</Button>
-        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
+        <Button Click="CheckItems" Grid.Row="3" Grid.Column="1">Pay</Button>
     </Grid>
+
 </UserControl>

@@ -18,8 +18,8 @@ namespace DinoDiner.Menu
         /// </summary>
         public MezzorellaSticks()
         {
-            Price = 0.99;
-            Calories = 540;
+            size = Size.Small;
+
         }
 
         /// <summary>
@@ -60,8 +60,7 @@ namespace DinoDiner.Menu
                         Calories = 720;
                         break;
                 }
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Size");
 
             }

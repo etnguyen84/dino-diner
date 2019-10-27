@@ -5,58 +5,69 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="600"
       Title="EntreeSelection">
-    <WrapPanel>
-        <WrapPanel.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="170"/>
-                <Setter Property="Height" Value="140"/>
+                <Setter Property="Margin" Value="5"/>
             </Style>
-        </WrapPanel.Resources>
-        <Button>
-            <StackPanel>
-                <Image Height="100" Width ="100"  Source="/entreeImgs/DinoDiner-01.png" Margin="10"/>
+        </Grid.Resources>
+        <Button Click="AddBrontowurst" Grid.Row="0" Grid.Column="0">
+            <StackPanel >
+                <Image Height="95" Width ="95"  Source="/entreeImgs/DinoDiner-01.png" Margin="10"/>
                 <TextBlock HorizontalAlignment="Center">Brontowurst</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
-            <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-05.png" Margin="10"/>
+        <Button Click="AddSteakosaurus" Grid.Row="1" Grid.Column="0" >
+            <StackPanel >
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-05.png" Margin="10"/>
                 <TextBlock HorizontalAlignment="Center">Steakosaurus Burger</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddTRex" Grid.Row="2" Grid.Column="0">
             <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-06.png" Margin="10" />
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-06.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">T-Rex King Burger</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddPBJ" Grid.Row="0" Grid.Column="1">
             <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-03.png" Margin="10" />
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-03.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Prehistoric PB&amp;J</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddWings" Grid.Row="1" Grid.Column="1">
             <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-04.png" Margin="10" />
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-04.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Pterodactyl Wings</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddWrap" Grid.Row="2" Grid.Column="1">
             <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-07.png" Margin="10" />
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-07.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Veloci-wrap</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddNuggets" Grid.Row="0" Grid.Column="2">
             <StackPanel>
-                <Image Height="100" Width ="100" Source="/entreeImgs/DinoDiner-02.png" Margin="10" />
+                <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-02.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Dino-Nuggets</TextBlock>
             </StackPanel>
         </Button>
-    </WrapPanel>
+    </Grid>
+
 </Page>
 
 
