@@ -25,6 +25,11 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
         /// <summary>
+        /// private background variable to hold drink
+        /// </summary>
+        private Drink _drink;
+
+        /// <summary>
         /// constructor for drink selection
         /// </summary>
         public DrinkSelection()
@@ -43,6 +48,7 @@ namespace PointOfSale
         /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
+            InitializeComponent();
             DataContext = drink;
             ResetDynamicButtons();
 
@@ -65,6 +71,7 @@ namespace PointOfSale
 
             SetSelectedSize(drink);
         }
+
         public void SelectFlavor(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new FlavorSelection());
@@ -198,6 +205,7 @@ namespace PointOfSale
                     WaterButton.ClearValue(Button.BackgroundProperty);
                     uxflavor.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
+                    _drink = new Sodasaurus();
                     break;
 
                 case "Jurassic Java":
@@ -208,6 +216,7 @@ namespace PointOfSale
                     uxdecaf.Visibility = Visibility.Visible;
                     uxroom.Visibility = Visibility.Visible;
                     uxaddIce.Visibility = Visibility.Visible;
+                    _drink = new JurassicJava();
                     break;
                 case "Tyrannotea":
                     SodaButton.ClearValue(Button.BackgroundProperty);
@@ -217,6 +226,7 @@ namespace PointOfSale
                     uxlemon.Visibility = Visibility.Visible;
                     uxsweet.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
+                    _drink = new Tyrannotea();
                     break;
                 case "Water":
                     SodaButton.ClearValue(Button.BackgroundProperty);
@@ -225,6 +235,7 @@ namespace PointOfSale
                     WaterButton.Background = new SolidColorBrush(Colors.LightBlue);
                     uxlemon.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
+                    _drink = new Water();
                     break;
             }
         }
@@ -255,8 +266,12 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
                 {
-                    drink.Size = DinoDiner.Menu.Size.Small;
-                    SetSelectedSize(drink);
+                    _drink = drink;
+                    order.Items.Remove(drink);
+                    _drink.Size = DinoDiner.Menu.Size.Small;
+                    order.Items.Add(_drink);
+                    SetSelectedSize(_drink);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
 
                 }
             }
@@ -272,9 +287,12 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
                 {
-                    drink.Size = DinoDiner.Menu.Size.Medium;
-                    SetSelectedSize(drink);
-
+                    _drink = drink;
+                    order.Items.Remove(drink);
+                    _drink.Size = DinoDiner.Menu.Size.Medium;
+                    order.Items.Add(_drink);
+                    SetSelectedSize(_drink);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
                 }
             }
         }
@@ -290,8 +308,12 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
                 {
-                    drink.Size = DinoDiner.Menu.Size.Large;
-                    SetSelectedSize(drink);
+                    _drink = drink;
+                    order.Items.Remove(drink);
+                    _drink.Size = DinoDiner.Menu.Size.Large;
+                    order.Items.Add(_drink);
+                    SetSelectedSize(_drink);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
 
                 }
             }

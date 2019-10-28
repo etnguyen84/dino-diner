@@ -45,7 +45,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.Cherry;
-                    NavigationService.Navigate(new DrinkSelection());
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -62,7 +62,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.Chocolate;
-                    NavigationService.Navigate(new DrinkSelection());
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -78,8 +78,8 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
-                    drink.Flavor = SodasaurusFlavor.Cola;
-                    NavigationService.Navigate(new DrinkSelection());
+                    //drink.Flavor = SodasaurusFlavor.Cola;
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -96,7 +96,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.Lime;
-                    NavigationService.Navigate(new DrinkSelection());
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -113,7 +113,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.Orange;
-                    NavigationService.Navigate(new DrinkSelection());
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -130,7 +130,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.RootBeer;
-                    NavigationService.Navigate(new DrinkSelection());
+                    NavigationService.Navigate(new DrinkSelection(drink));
 
                 }
             }
@@ -147,8 +147,7 @@ namespace PointOfSale
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
                 {
                     drink.Flavor = SodasaurusFlavor.Vanilla;
-                    NavigationService.Navigate(new DrinkSelection());
-
+                    NavigationService.Navigate(new DrinkSelection(drink));
                 }
             }
         }

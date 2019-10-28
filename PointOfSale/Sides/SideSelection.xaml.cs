@@ -35,6 +35,7 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
         }
+        private Side _side;
         /// <summary>
         /// constructor for side selection page with side value
         /// </summary>
@@ -62,6 +63,7 @@ namespace PointOfSale
         /// <param name="side"></param>
         void SetSelectedSide(Side side)
         {
+            
             switch (side.Size)
             {
                 case DinoDiner.Menu.Size.Small:
@@ -89,6 +91,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
+            _side = new Fryceritops();
             if (DataContext is Order order)
             {
                 Side side = new Fryceritops();
@@ -104,6 +107,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
+            _side = new MeteorMacAndCheese();
+
             if (DataContext is Order order)
             {
                 Side side = new MeteorMacAndCheese();
@@ -119,6 +124,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddMezzorellaSticks(object sender, RoutedEventArgs args)
         {
+            _side = new MezzorellaSticks();
+
             if (DataContext is Order order)
             {
                 Side side = new MezzorellaSticks();
@@ -134,6 +141,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddTriceritots(object sender, RoutedEventArgs args)
         {
+            _side = new Triceritots();
+
             if (DataContext is Order order)
             {
                 Side side = new Triceritots();
@@ -154,10 +163,12 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
-                    side.Size = DinoDiner.Menu.Size.Small;
-                    SetSelectedSide(side);
+                    order.Items.Remove(side);
+                    _side.Size = DinoDiner.Menu.Size.Small;
+                    SetSelectedSide(_side);
+                    order.Items.Add(_side);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
                     NavigationService.Navigate(new MenuCategorySelection());
-
                 }
             }
         }
@@ -172,10 +183,12 @@ namespace PointOfSale
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
-                    side.Size = DinoDiner.Menu.Size.Medium;
-                    SetSelectedSide(side);
+                    order.Items.Remove(side);
+                    _side.Size = DinoDiner.Menu.Size.Medium;
+                    SetSelectedSide(_side);
+                    order.Items.Add(_side);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
                     NavigationService.Navigate(new MenuCategorySelection());
-
                 }
             }
         }
@@ -190,8 +203,11 @@ namespace PointOfSale
             {
                 if(CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
-                    side.Size = DinoDiner.Menu.Size.Large;
-                    SetSelectedSide(side);
+                    order.Items.Remove(side);
+                    _side.Size = DinoDiner.Menu.Size.Large;
+                    SetSelectedSide(_side);
+                    order.Items.Add(_side);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
                     NavigationService.Navigate(new MenuCategorySelection());
                 }
             }
