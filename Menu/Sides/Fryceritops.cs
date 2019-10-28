@@ -18,7 +18,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Fryceritops()
         {
-            size = Size.Small;
+            Size = Size.Small;
         }
 
         /// <summary>

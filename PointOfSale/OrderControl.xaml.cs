@@ -27,7 +27,7 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            //MountItemListener();
+            MountItemListener();
         }
         /// <summary>
         /// allows user to navigate to other pages
@@ -98,7 +98,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            //MountItemListener();
+            MountItemListener();
         }
         public void CheckItems(object sender, RoutedEventArgs args)
         {

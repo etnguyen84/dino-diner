@@ -13,7 +13,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// represents items added to the order
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
+        public ObservableCollection<IOrderItem> Items { get; set; }
 
         /// <summary>
         /// getter that calculates total price from the prices of all order items
@@ -69,6 +69,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
+            Items = new ObservableCollection<IOrderItem>();
             this.Items.CollectionChanged += this.OnCollectionChanged;
             SalesTaxRate = .10;
         }
