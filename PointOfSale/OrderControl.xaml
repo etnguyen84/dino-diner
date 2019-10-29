@@ -20,7 +20,7 @@
         <TextBlock Text="Order" TextAlignment="Right" FontWeight="Bold"/>
         <TextBlock Text="#" Grid.Column="1" Margin="5,0,0,0"/>
         <ListBox ItemsSource ="{Binding Path =Items, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" 
-                 Grid.ColumnSpan="2" Name ="OrderItems" IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged" DataContextChanged="OnDataContextChanged">
+                 Grid.ColumnSpan="2" Name ="OrderItems" IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid MinWidth="180">
@@ -41,7 +41,7 @@
         <TextBlock Text="$" Grid.Row="2" Grid.Column="2" TextAlignment="Left" FontWeight="Bold"/>
         <TextBlock Text= "{Binding Path=SubtotalCost, StringFormat=N2}" TextAlignment="Center" Grid.Row="2" Grid.Column="2" FontWeight="Bold"/>
         <Button Grid.Row="3">Cancel</Button>
-        <Button Click="CheckItems" Grid.Row="3" Grid.Column="1">Pay</Button>
+        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
     </Grid>
 
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -10,10 +11,40 @@ namespace DinoDiner.Menu
 {
     public class Order : INotifyPropertyChanged
     {
+
+        //public ObservableCollection<IOrderItem> Items { get; set; }
         /// <summary>
         /// represents items added to the order
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
+        public IOrderItem[] Items { get { return items.ToArray(); } }
+        /// <summary>
+        /// background variable that represents items added to the order
+        /// </summary>
+        private List<IOrderItem> items = new List<IOrderItem>();
+
+        public void Add(IOrderItem item)
+        {
+            item.PropertyChanged += OnItemPropertyChanged;
+            items.Add(item);
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+            NotifyOfPropertyChanged("Items");
+        }
+
+        public bool Remove(IOrderItem item)
+        {
+            bool removed = items.Remove(item);
+            if (removed)
+            {
+                NotifyOfPropertyChanged("SubtotalCost");
+                NotifyOfPropertyChanged("SalesTaxCost");
+                NotifyOfPropertyChanged("TotalCost");
+                NotifyOfPropertyChanged("Items");
+            }
+            return removed;
+        }
+
 
         /// <summary>
         /// getter that calculates total price from the prices of all order items
@@ -69,8 +100,9 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            Items = new ObservableCollection<IOrderItem>();
-            this.Items.CollectionChanged += this.OnCollectionChanged;
+            //Items = new ObservableCollection<IOrderItem>();
+            items = new List<IOrderItem>();
+            //this.items.CollectionChanged += this.OnCollectionChanged;
             SalesTaxRate = .10;
         }
         /// <summary>
@@ -79,6 +111,13 @@ namespace DinoDiner.Menu
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+        }
+
+        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             NotifyOfPropertyChanged("SubtotalCost");
             NotifyOfPropertyChanged("SalesTaxCost");

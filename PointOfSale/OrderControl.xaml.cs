@@ -27,32 +27,15 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            MountItemListener();
         }
         /// <summary>
         /// allows user to navigate to other pages
         /// </summary>
         public NavigationService NavigationService { get; set; }
         /// <summary>
-        /// listener for hwen collection is changed
+        /// listener for when collection is changed
         /// </summary>
-        private void MountItemListener()
-        {
-            if (DataContext is Order order)
-            {
-                order.Items.CollectionChanged += OnCollectionChanged;
-            }
-        }
 
-        /// <summary>
-        /// event whenever collection is changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnCollectionChanged(object sender, EventArgs args)
-        {
-
-        }
 
         private void OnRemoveOrderItem(object sender, RoutedEventArgs args)
         {
@@ -62,7 +45,7 @@ namespace PointOfSale
                 {
                     if (element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.Remove(item);
                     }
                 }
             }
@@ -91,24 +74,8 @@ namespace PointOfSale
 
             }
         }
-        /// <summary>
-        /// event for when data context is changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            MountItemListener();
-        }
-        public void CheckItems(object sender, RoutedEventArgs args)
-        {
-            if(DataContext is Order order)
-            {
-                Console.WriteLine(CollectionViewSource.GetDefaultView(order.Items).CurrentItem);
-
-            }
-
-        }
+ 
+ 
 
         
     } 

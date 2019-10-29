@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /* Author: Ethan Nguyen
  * Class: IOrderItem.cs
@@ -9,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// public interface class for an order item, contains price, description and special
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Lets user get the price of the item

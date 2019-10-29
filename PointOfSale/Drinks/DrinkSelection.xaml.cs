@@ -36,11 +36,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             ResetDynamicButtons();
-            if (DataContext is Order order)
-            {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
-            }
-
         }
         /// <summary>
         /// constructor for when drink is passed in
@@ -49,7 +44,7 @@ namespace PointOfSale
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
-            DataContext = drink;
+            _drink = drink;
             ResetDynamicButtons();
 
             if (drink is Sodasaurus)
@@ -87,11 +82,9 @@ namespace PointOfSale
             SetSelectedDrink("Sodasaurus");
             if (DataContext is Order order)
             {
-                Drink drink = new Sodasaurus();
-                order.Items.Add(drink);
-                SetSelectedSize(drink);
-
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _drink = new Sodasaurus();
+                order.Add(_drink);
+                SetSelectedSize(_drink);
             }
 
         }
@@ -105,11 +98,9 @@ namespace PointOfSale
             SetSelectedDrink("Jurassic Java");
             if (DataContext is Order order)
             {
-                Drink drink = new JurassicJava();
-                order.Items.Add(drink);
-                SetSelectedSize(drink);
-
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _drink = new JurassicJava();
+                order.Add(_drink);
+                SetSelectedSize(_drink);
             }
 
         }
@@ -123,11 +114,10 @@ namespace PointOfSale
             SetSelectedDrink("Tyrannotea");
             if (DataContext is Order order)
             {
-                Drink drink = new Tyrannotea();
-                order.Items.Add(drink);
-                SetSelectedSize(drink);
+                _drink = new Tyrannotea();
+                order.Add(_drink);
+                SetSelectedSize(_drink);
 
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
         }
@@ -141,11 +131,9 @@ namespace PointOfSale
             SetSelectedDrink("Water");
             if (DataContext is Order order)
             {
-                Drink drink = new Water();
-                order.Items.Add(drink);
-                SetSelectedSize(drink);
-
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _drink = new Water();
+                order.Add(_drink);
+                SetSelectedSize(_drink);
             }
 
         }
@@ -205,7 +193,6 @@ namespace PointOfSale
                     WaterButton.ClearValue(Button.BackgroundProperty);
                     uxflavor.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
-                    _drink = new Sodasaurus();
                     break;
 
                 case "Jurassic Java":
@@ -216,7 +203,6 @@ namespace PointOfSale
                     uxdecaf.Visibility = Visibility.Visible;
                     uxroom.Visibility = Visibility.Visible;
                     uxaddIce.Visibility = Visibility.Visible;
-                    _drink = new JurassicJava();
                     break;
                 case "Tyrannotea":
                     SodaButton.ClearValue(Button.BackgroundProperty);
@@ -226,7 +212,6 @@ namespace PointOfSale
                     uxlemon.Visibility = Visibility.Visible;
                     uxsweet.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
-                    _drink = new Tyrannotea();
                     break;
                 case "Water":
                     SodaButton.ClearValue(Button.BackgroundProperty);
@@ -235,7 +220,6 @@ namespace PointOfSale
                     WaterButton.Background = new SolidColorBrush(Colors.LightBlue);
                     uxlemon.Visibility = Visibility.Visible;
                     uxholdIce.Visibility = Visibility.Visible;
-                    _drink = new Water();
                     break;
             }
         }
@@ -262,19 +246,12 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetSmall(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if ( _drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    _drink = drink;
-                    order.Items.Remove(drink);
-                    _drink.Size = DinoDiner.Menu.Size.Small;
-                    order.Items.Add(_drink);
-                    SetSelectedSize(_drink);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-
-                }
+                _drink.Size = DinoDiner.Menu.Size.Small;
+                SetSelectedSize(_drink);
             }
+           
         }
         /// <summary>
         /// makes drink medium
@@ -283,17 +260,10 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetMedium(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    _drink = drink;
-                    order.Items.Remove(drink);
-                    _drink.Size = DinoDiner.Menu.Size.Medium;
-                    order.Items.Add(_drink);
-                    SetSelectedSize(_drink);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                }
+                _drink.Size = DinoDiner.Menu.Size.Medium;
+                SetSelectedSize(_drink);
             }
         }
         /// <summary>
@@ -304,18 +274,10 @@ namespace PointOfSale
         public void SetLarge(object sender, RoutedEventArgs args)
         {
 
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    _drink = drink;
-                    order.Items.Remove(drink);
-                    _drink.Size = DinoDiner.Menu.Size.Large;
-                    order.Items.Add(_drink);
-                    SetSelectedSize(_drink);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-
-                }
+                _drink.Size = DinoDiner.Menu.Size.Large;
+                SetSelectedSize(_drink);
             }
         }
         /// <summary>
