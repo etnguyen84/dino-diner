@@ -203,6 +203,7 @@ namespace PointOfSale
                     uxdecaf.Visibility = Visibility.Visible;
                     uxroom.Visibility = Visibility.Visible;
                     uxaddIce.Visibility = Visibility.Visible;
+                    //uxholdIce.Visibility = Visibility.Visible;
                     break;
                 case "Tyrannotea":
                     SodaButton.ClearValue(Button.BackgroundProperty);
@@ -224,21 +225,6 @@ namespace PointOfSale
             }
         }
 
-        /// <summary>
-        /// checks current changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        public void OnCurrentChanged(object sender, EventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    SetSelectedSize(drink);
-                }
-            }
-        }
         /// <summary>
         /// makes drink small
         /// </summary>
@@ -287,6 +273,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddLemon(object sender, RoutedEventArgs args)
         {
+            /*
             if (DataContext is Order order)
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea drink)
@@ -298,7 +285,19 @@ namespace PointOfSale
                 {
                     drnk.AddLemon();
                 }
+            }*/
+            if (_drink != null)
+            {
+                if (_drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
+                else if (_drink is Water w)
+                {
+                    w.AddLemon();
+                }
             }
+          
         }
         /// <summary>
         /// coffee is decaf
@@ -307,13 +306,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddDecaf(object sender, RoutedEventArgs args)
         {
+            /*
             if (DataContext is Order order)
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava drink)
                 {
                         drink.Decaf = true;
-                    
-     
+                }
+            }*/
+            if (_drink != null)
+            {
+                if (_drink is JurassicJava j)
+                {
+                    j.Decaf = true;
                 }
             }
         }
@@ -324,11 +329,11 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddRoom(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava drink)
+                if (_drink is JurassicJava j)
                 {
-                    drink.LeaveRoomForCream();
+                    j.LeaveRoomForCream();
                 }
             }
         }
@@ -339,11 +344,11 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddSweet(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea drink)
+                if (_drink is Tyrannotea tea)
                 {
-                    drink.Sweet = true;
+                    tea.Sweet = true;
                 }
             }
         }
@@ -355,12 +360,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void HoldIce(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.HoldIce();
-                }
+                _drink.HoldIce();
             }
         }
         /// <summary>
@@ -370,11 +372,11 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddIce(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (_drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava drink)
+                if (_drink is JurassicJava j)
                 {
-                    drink.AddIce();
+                    j.AddIce();
                 }
             }
         }
@@ -387,7 +389,6 @@ namespace PointOfSale
         public void DoneClick(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new MenuCategorySelection());
-
         }
 
     }

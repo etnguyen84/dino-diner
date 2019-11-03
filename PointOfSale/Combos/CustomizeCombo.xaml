@@ -5,34 +5,78 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="600"
       Title="CustomizeCombo">
 
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="220" />
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Name= "EntreeButton" Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center">Customize Entree</TextBlock>
+                </StackPanel>
+            </Button>
+      
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="0" Name= "SideButton" Click="SelectSide">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center">Customize Side</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" Name= "DrinkButton"  Click="SelectDrink">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center">Customize Drink</TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
 
-        <Button Click="SelectSides" Grid.Column="0" Grid.Row="0">Side: </Button>
-        <Button Grid.Column="0" Grid.Row="1">Size: </Button>
-        <Button Click="SelectDrinks" Grid.Column="1" Grid.Row="0">Drink: </Button>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
-            <Viewbox Height="40" Margin="10">
-                <RadioButton GroupName ="size" Width="63" >Small</RadioButton>
-            </Viewbox>
-            <Viewbox Height="40" Margin="10" >
-                <RadioButton GroupName ="size" Width="63">Medium</RadioButton>
-            </Viewbox>
-            <Viewbox Height="40" Margin="10">
-                <RadioButton GroupName ="size" Width="63">Large</RadioButton>
-            </Viewbox>
-        </StackPanel>
+        <Grid Grid.Column="2" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Click="SetSmall" Name="SmallButton" Grid.Column="0" Grid.Row="0">
+                Small
+            </Button>
+            <Button Click="SetMedium" Name="MediumButton" Grid.Column="0" Grid.Row="1">
+                Medium
+            </Button>
+            <Button Click="SetLarge" Name="LargeButton" Grid.Column="0" Grid.Row="2">
+                Large
+            </Button>
+        </Grid>
     </Grid>
 
 

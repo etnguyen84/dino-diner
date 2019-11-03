@@ -18,8 +18,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public MezzorellaSticks()
         {
-            size = Size.Small;
-
+            Size = Size.Small;
         }
 
         /// <summary>

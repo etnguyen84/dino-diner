@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public MeteorMacAndCheese ()
         {
-            size = Size.Small;
+            Size = Size.Small;
         }
 
         /// <summary>

@@ -129,6 +129,8 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Side");
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
+
             }
         }
         /// <summary>

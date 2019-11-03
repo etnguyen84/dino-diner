@@ -18,7 +18,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Triceritots()
         {
-            size = Size.Small;
+            Size = Size.Small;
 
         }
 

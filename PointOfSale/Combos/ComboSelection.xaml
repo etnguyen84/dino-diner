@@ -24,43 +24,43 @@
                 <Setter Property="Margin" Value="5"/>
             </Style>
         </Grid.Resources>
-        <Button Click= "SelectCustomize" Grid.Row="0" Grid.Column="0">
+        <Button Click= "BrontowurstCombo" Grid.Row="0" Grid.Column="0">
             <StackPanel >
                 <Image Height="95" Width ="95"  Source="/entreeImgs/DinoDiner-01.png" Margin="10"/>
                 <TextBlock HorizontalAlignment="Center">Brontowurst Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="1" Grid.Column="0" >
+        <Button Click= "SteakBurgerCombo" Grid.Row="1" Grid.Column="0" >
             <StackPanel >
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-05.png" Margin="10"/>
                 <TextBlock HorizontalAlignment="Center">Steakosaurus Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="2" Grid.Column="0">
+        <Button Click= "TRexKingCombo" Grid.Row="2" Grid.Column="0">
             <StackPanel>
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-06.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">T-Rex King Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="0" Grid.Column="1">
+        <Button Click= "PBJCombo" Grid.Row="0" Grid.Column="1">
             <StackPanel>
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-03.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Prehistoric PB&amp;J Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="1" Grid.Column="1">
+        <Button Click= "WingsCombo" Grid.Row="1" Grid.Column="1">
             <StackPanel>
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-04.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Pterodactyl Wings Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="2" Grid.Column="1">
+        <Button Click= "WrapCombo" Grid.Row="2" Grid.Column="1">
             <StackPanel>
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-07.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Veloci-wrap Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click= "SelectCustomize" Grid.Row="0" Grid.Column="2">
+        <Button Click= "NuggetsCombo" Grid.Row="0" Grid.Column="2">
             <StackPanel>
                 <Image Height="95" Width ="95" Source="/entreeImgs/DinoDiner-02.png" Margin="10" />
                 <TextBlock HorizontalAlignment="Center">Dino-Nuggets Combo</TextBlock>

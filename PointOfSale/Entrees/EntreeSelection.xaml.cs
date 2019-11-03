@@ -24,16 +24,13 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        private Entree _entree;
         /// <summary>
         /// constructor for entree selection page
         /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
-            if (DataContext is Order order)
-            {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
-            }
         }
         /// <summary>
         /// constructor with passing in of entree
@@ -41,23 +38,10 @@ namespace PointOfSale
         /// <param name="entree"></param>
         public EntreeSelection(Entree entree)
         {
-            DataContext = entree;
+            InitializeComponent();
+            _entree = entree;
         }
-        /// <summary>
-        /// handles when current value is changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        public void OnCurrentChanged(object sender, EventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
-                {
-                    //SetSelectedSide(side);
-                }
-            }
-        }
+
         /// <summary>
         /// adds brontowurst to order
         /// </summary>
@@ -67,11 +51,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new Brontowurst();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new Brontowurst();
+                order.Add(_entree);
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
         }
         /// <summary>
         /// adds steakosaurus to order
@@ -82,11 +66,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new SteakosaurusBurger();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new SteakosaurusBurger();
+                order.Add(_entree);
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
         /// <summary>
@@ -98,11 +82,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new TRexKingBurger();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new TRexKingBurger();
+                order.Add(_entree);
+               // CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
         /// <summary>
@@ -114,11 +98,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new PrehistoricPBJ();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new PrehistoricPBJ();
+                order.Add(_entree);
+               // CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
         /// <summary>
@@ -130,11 +114,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new PterodactylWings();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new PterodactylWings();
+                order.Add(_entree);
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
         /// <summary>
@@ -146,11 +130,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new VelociWrap();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new VelociWrap();
+                order.Add(_entree);
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
         /// <summary>
@@ -162,13 +146,15 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Entree entree = new DinoNuggets();
-                order.Add(entree);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = new DinoNuggets();
+                order.Add(_entree);
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(_entree));
 
         }
+
+
 
 
     }
