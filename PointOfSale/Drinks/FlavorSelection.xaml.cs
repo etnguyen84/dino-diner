@@ -23,14 +23,34 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
-        public FlavorSelection()
+        /// <summary>
+        /// private backing varaible for soda
+        /// </summary>
+        private Sodasaurus _soda;
+        /// <summary>
+        /// backing variable for combo
+        /// </summary>
+        private CretaceousCombo _combo;
+
+        /// <summary>
+        /// Constructor for page with drink passed in
+        /// </summary>
+        /// <param name="soda"></param>
+        public FlavorSelection(Sodasaurus soda)
         {
             InitializeComponent();
-            /*
-            if (DataContext is Order order)
-            {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
-            }*/
+            _soda = soda;
+
+        }
+        /// <summary>
+        /// Constructor for page with combo passed in
+        /// </summary>
+        /// <param name="combo"></param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            _combo = combo;
+            _soda = combo.Drink as Sodasaurus;
         }
 
         /// <summary>
@@ -40,15 +60,18 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetCherry(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.Cherry;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.Cherry;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
             }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
+            }
+
         }
         /// <summary>
         /// sets flavor to chocolate
@@ -57,14 +80,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetChocolate(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.Chocolate;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.Chocolate;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
         /// <summary>
@@ -74,14 +99,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetCola(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    //drink.Flavor = SodasaurusFlavor.Cola;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.Cola;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
         /// <summary>
@@ -91,14 +118,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetLime(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.Lime;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.Lime;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
         /// <summary>
@@ -108,14 +137,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetOrange(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.Orange;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.Orange;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
         /// <summary>
@@ -125,14 +156,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetRootBeer(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.RootBeer;
-                    NavigationService.Navigate(new DrinkSelection(drink));
+            _soda.Flavor = SodasaurusFlavor.RootBeer;
 
-                }
+            if (_combo != null)
+            {
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
         /// <summary>
@@ -142,13 +175,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetVanilla(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            _soda.Flavor = SodasaurusFlavor.Vanilla;
+
+            if (_combo != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus drink)
-                {
-                    drink.Flavor = SodasaurusFlavor.Vanilla;
-                    NavigationService.Navigate(new DrinkSelection(drink));
-                }
+                _combo.Drink = _soda;
+                NavigationService.Navigate(new DrinkSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(_soda as Drink));
             }
         }
 

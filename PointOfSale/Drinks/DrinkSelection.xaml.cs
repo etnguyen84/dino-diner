@@ -30,6 +30,11 @@ namespace PointOfSale
         private Drink _drink;
 
         /// <summary>
+        /// backend variable that holds cretaceous combo
+        /// </summary>
+        private CretaceousCombo _combo;
+
+        /// <summary>
         /// constructor for drink selection
         /// </summary>
         public DrinkSelection()
@@ -37,6 +42,7 @@ namespace PointOfSale
             InitializeComponent();
             ResetDynamicButtons();
         }
+
         /// <summary>
         /// constructor for when drink is passed in
         /// </summary>
@@ -67,9 +73,54 @@ namespace PointOfSale
             SetSelectedSize(drink);
         }
 
+        /// <summary>
+        /// constructor that takes in a combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            _combo = combo;
+            _drink = _combo.Drink;
+            ResetDynamicButtons();
+
+            if (_drink is Sodasaurus)
+            {
+                SetSelectedDrink("Sodasaurus");
+            }
+            else if (_drink is JurassicJava)
+            {
+                SetSelectedDrink("Jurassic Java");
+            }
+            else if (_drink is Tyrannotea)
+            {
+                SetSelectedDrink("Tyrannotea");
+            }
+            else if (_drink is Water)
+            {
+                SetSelectedDrink("Water");
+            }
+
+            SetSelectedSize(_drink);
+        }
+
+        /// <summary>
+        /// navigates to a flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if (_combo != null)
+            {
+
+                NavigationService.Navigate(new FlavorSelection(_combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new FlavorSelection(_drink as Sodasaurus));
+
+            }
 
         }
         /// <summary>
@@ -79,14 +130,21 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectSodasaurus(object sender, RoutedEventArgs args)
         {
-            SetSelectedDrink("Sodasaurus");
             if (DataContext is Order order)
             {
+                SetSelectedDrink("Sodasaurus");
                 _drink = new Sodasaurus();
-                order.Add(_drink);
                 SetSelectedSize(_drink);
-            }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
+                else
+                {
+                    order.Add(_drink);
 
+                }
+            }
         }
         /// <summary>
         /// adds java to order
@@ -95,12 +153,20 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectJurassicJava(object sender, RoutedEventArgs args)
         {
-            SetSelectedDrink("Jurassic Java");
             if (DataContext is Order order)
             {
+                SetSelectedDrink("Jurassic Java");
                 _drink = new JurassicJava();
-                order.Add(_drink);
                 SetSelectedSize(_drink);
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
+                else
+                {
+                    order.Add(_drink);
+
+                }
             }
 
         }
@@ -111,13 +177,20 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectTyrannotea(object sender, RoutedEventArgs args)
         {
-            SetSelectedDrink("Tyrannotea");
             if (DataContext is Order order)
             {
+                SetSelectedDrink("Tyrannotea");
                 _drink = new Tyrannotea();
-                order.Add(_drink);
                 SetSelectedSize(_drink);
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
+                else
+                {
+                    order.Add(_drink);
 
+                }
             }
 
         }
@@ -128,12 +201,20 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectWater(object sender, RoutedEventArgs args)
         {
-            SetSelectedDrink("Water");
             if (DataContext is Order order)
             {
+                SetSelectedDrink("Water");
                 _drink = new Water();
-                order.Add(_drink);
                 SetSelectedSize(_drink);
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
+                else
+                {
+                    order.Add(_drink);
+
+                }
             }
 
         }
@@ -232,12 +313,17 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetSmall(object sender, RoutedEventArgs args)
         {
-            if ( _drink != null)
+            if (_drink != null)
             {
                 _drink.Size = DinoDiner.Menu.Size.Small;
                 SetSelectedSize(_drink);
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+
+                }
             }
-           
+
         }
         /// <summary>
         /// makes drink medium
@@ -250,6 +336,11 @@ namespace PointOfSale
             {
                 _drink.Size = DinoDiner.Menu.Size.Medium;
                 SetSelectedSize(_drink);
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+
+                }
             }
         }
         /// <summary>
@@ -259,11 +350,15 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SetLarge(object sender, RoutedEventArgs args)
         {
-
             if (_drink != null)
             {
                 _drink.Size = DinoDiner.Menu.Size.Large;
                 SetSelectedSize(_drink);
+                if(_combo != null)
+                {
+                    _combo.Drink = _drink;
+
+                }
             }
         }
         /// <summary>
@@ -273,19 +368,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddLemon(object sender, RoutedEventArgs args)
         {
-            /*
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea drink)
-                {
-                    drink.AddLemon();
 
-                }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Water drnk)
-                {
-                    drnk.AddLemon();
-                }
-            }*/
             if (_drink != null)
             {
                 if (_drink is Tyrannotea tea)
@@ -296,7 +379,12 @@ namespace PointOfSale
                 {
                     w.AddLemon();
                 }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
             }
+        
           
         }
         /// <summary>
@@ -306,19 +394,15 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void AddDecaf(object sender, RoutedEventArgs args)
         {
-            /*
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava drink)
-                {
-                        drink.Decaf = true;
-                }
-            }*/
             if (_drink != null)
             {
                 if (_drink is JurassicJava j)
                 {
                     j.Decaf = true;
+                }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
                 }
             }
         }
@@ -335,6 +419,10 @@ namespace PointOfSale
                 {
                     j.LeaveRoomForCream();
                 }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
             }
         }
         /// <summary>
@@ -350,6 +438,10 @@ namespace PointOfSale
                 {
                     tea.Sweet = true;
                 }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
             }
         }
 
@@ -363,6 +455,10 @@ namespace PointOfSale
             if (_drink != null)
             {
                 _drink.HoldIce();
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
             }
         }
         /// <summary>
@@ -378,6 +474,10 @@ namespace PointOfSale
                 {
                     j.AddIce();
                 }
+                if (_combo != null)
+                {
+                    _combo.Drink = _drink;
+                }
             }
         }
 
@@ -388,7 +488,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void DoneClick(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (_combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(_combo));
+            }
+            else if (_drink != null)
+            {
+
+                NavigationService.Navigate(new MenuCategorySelection());
+
+            }
         }
 
     }

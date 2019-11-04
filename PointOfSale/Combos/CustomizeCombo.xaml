@@ -30,7 +30,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Name= "EntreeButton" Grid.Row="0" Grid.Column="0">
+            <Button Click="SelectEntree" Name= "EntreeButton" Grid.Row="0" Grid.Column="0">
                 <StackPanel>
                     <TextBlock HorizontalAlignment="Center">Customize Entree</TextBlock>
                 </StackPanel>

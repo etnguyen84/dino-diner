@@ -24,10 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-        /*
-        private Side _side;
-        private Drink _drink;
-        private Entree _entree;*/
+        /// <summary>
+        /// backend variable for cretaceous combo
+        /// </summary>
         private CretaceousCombo _combo;
 
         /// <summary>
@@ -37,12 +36,25 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// constructor that takes in a combo
+        /// </summary>
+        /// <param name="combo"></param>
         public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
             _combo = combo;
             SetSelectedSize();
+        }
+
+        /// <summary>
+        /// navigate to Customize Entree page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void SelectEntree(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new CustomizeEntree(_combo));
         }
 
         /// <summary>
@@ -52,7 +64,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectSide(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection(_combo.Side));
+            NavigationService.Navigate(new SideSelection(_combo));
         }
         /// <summary>
         /// navigate to select drinks page
@@ -61,9 +73,11 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection(_combo.Drink));
+            NavigationService.Navigate(new DrinkSelection(_combo));
         }
-
+        /// <summary>
+        /// sets combo size
+        /// </summary>
         void SetSelectedSize()
         {
             switch (_combo.Size)
@@ -86,11 +100,17 @@ namespace PointOfSale
                     break;
             }
         }
+        /// <summary>
+        /// sets size to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SetSmall(object sender, RoutedEventArgs args)
         {
             if (_combo != null)
             {
                 _combo.Size = DinoDiner.Menu.Size.Small;
+                SetSelectedSize();
             }
         }
         /// <summary>
@@ -103,6 +123,7 @@ namespace PointOfSale
             if (_combo != null)
             {
                 _combo.Size = DinoDiner.Menu.Size.Medium;
+                SetSelectedSize();
             }
         }
         /// <summary>
@@ -115,6 +136,7 @@ namespace PointOfSale
             if (_combo != null)
             {
                 _combo.Size = DinoDiner.Menu.Size.Large;
+                SetSelectedSize();
             }
 
 
