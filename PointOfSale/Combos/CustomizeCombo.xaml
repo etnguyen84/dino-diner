@@ -17,6 +17,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <Style TargetType="Button">
@@ -77,6 +78,7 @@
                 Large
             </Button>
         </Grid>
+        <Button Click="DoneClick" Grid.ColumnSpan="3" Grid.Row="1">DONE</Button>
     </Grid>
 
 

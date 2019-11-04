@@ -138,8 +138,17 @@ namespace PointOfSale
                 _combo.Size = DinoDiner.Menu.Size.Large;
                 SetSelectedSize();
             }
+        }
 
-
+        /// <summary>
+        /// returns user to menu category selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void DoneClick(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }
+

@@ -492,11 +492,9 @@ namespace PointOfSale
             {
                 NavigationService.Navigate(new CustomizeCombo(_combo));
             }
-            else if (_drink != null)
+            else
             {
-
                 NavigationService.Navigate(new MenuCategorySelection());
-
             }
         }
 
