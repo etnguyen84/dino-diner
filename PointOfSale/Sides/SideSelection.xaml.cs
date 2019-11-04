@@ -126,7 +126,6 @@ namespace PointOfSale
                 }
                 else
                 {
-                    _side = new Fryceritops();
                     _side.Size = DinoDiner.Menu.Size.Small;
                     order.Add(_side);
                 }
@@ -152,7 +151,6 @@ namespace PointOfSale
                 }
                 else
                 {
-                    _side = new MeteorMacAndCheese();
                     _side.Size = DinoDiner.Menu.Size.Small;
                     order.Add(_side);
                 }
@@ -177,7 +175,6 @@ namespace PointOfSale
                 }
                 else
                 {
-                    _side = new MezzorellaSticks();
                     _side.Size = DinoDiner.Menu.Size.Small;
                     order.Add(_side);
                 }
