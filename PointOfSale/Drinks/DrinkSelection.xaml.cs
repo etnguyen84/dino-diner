@@ -132,18 +132,18 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SetSelectedDrink("Sodasaurus");
                 _drink = new Sodasaurus();
-                SetSelectedSize(_drink);
                 if (_combo != null)
                 {
+                    _drink.Size = _combo.Size;
                     _combo.Drink = _drink;
                 }
                 else
                 {
                     order.Add(_drink);
-
                 }
+                SetSelectedDrink("Sodasaurus");
+                SetSelectedSize(_drink);
             }
         }
         /// <summary>
@@ -155,18 +155,19 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SetSelectedDrink("Jurassic Java");
                 _drink = new JurassicJava();
-                SetSelectedSize(_drink);
                 if (_combo != null)
                 {
+                    _drink.Size = _combo.Size;
                     _combo.Drink = _drink;
                 }
                 else
                 {
                     order.Add(_drink);
-
                 }
+                SetSelectedDrink("Jurassic Java");
+                SetSelectedSize(_drink);
+
             }
 
         }
@@ -179,18 +180,18 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SetSelectedDrink("Tyrannotea");
                 _drink = new Tyrannotea();
-                SetSelectedSize(_drink);
                 if (_combo != null)
                 {
+                    _drink.Size = _combo.Size;
                     _combo.Drink = _drink;
                 }
                 else
                 {
                     order.Add(_drink);
-
                 }
+                SetSelectedDrink("Tyrannotea");
+                SetSelectedSize(_drink);
             }
 
         }
@@ -203,11 +204,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SetSelectedDrink("Water");
                 _drink = new Water();
-                SetSelectedSize(_drink);
                 if (_combo != null)
                 {
+                    _drink.Size = _combo.Size;
                     _combo.Drink = _drink;
                 }
                 else
@@ -215,6 +215,8 @@ namespace PointOfSale
                     order.Add(_drink);
 
                 }
+                SetSelectedDrink("Water");
+                SetSelectedSize(_drink);
             }
 
         }
