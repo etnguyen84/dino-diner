@@ -12,3 +12,7 @@ body {
     padding-right: 15px;
 }
 
+/* Style format for menu-item class, used on menu page to display menu items */
+.menu-item {
+    color: darkgreen;
+}

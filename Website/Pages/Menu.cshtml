@@ -4,5 +4,76 @@
     ViewData["Title"] = "Menu";
 }
 
-<h2>Menu</h2>
+<h1>Menu</h1>
 
+<h2>Combos</h2>
+@foreach (var i in Model._menu.AvailableCombos)
+{
+    <div class="menu-item">
+        <h3>@i</h3>
+        <p>Price: $@String.Format("{0:0.00}", i.Price)</p>
+        <p>@i.Calories Calories</p>
+
+        <p>
+            Ingredients: <br />
+            @foreach (var ing in i.Ingredients)
+            {
+            <p>&#9;• @ing</p>
+        }
+            </p> <br />
+        </div>
+    }
+
+<h2>Entrees</h2>
+@foreach (var i in Model._menu.AvailableEntrees)
+{
+    <div class="menu-item">
+        <h3>@i.Description</h3>
+        <p>Price: $@String.Format("{0:0.00}", i.Price)</p>
+        <p>@i.Calories Calories</p>
+
+        <p>
+            Ingredients: <br />
+            @foreach (var ing in i.Ingredients)
+            {
+            <p>&#9;• @ing</p>
+        }
+            </p> <br />
+        </div>
+    }
+
+<h2>Sides</h2>
+@foreach (var i in Model._menu.AvailableSides)
+{
+    <div class="menu-item">
+        <h3>@i.Description</h3>
+        <p>Price: $@String.Format("{0:0.00}", i.Price)</p>
+        <p>@i.Calories Calories</p>
+
+        <p>
+            Ingredients: <br />
+            @foreach (var ing in i.Ingredients)
+            {
+            <p>&#9;• @ing</p>
+        }
+            </p> <br />
+        </div>
+    }
+
+<h2>Drinks</h2>
+@foreach (var i in Model._menu.AvailableDrinks)
+{
+    <div class="menu-item">
+        <h3>@i.Description</h3>
+        <p>Price: $@String.Format("{0:0.00}", i.Price)</p>
+        <p>@i.Calories Calories</p>
+
+        <p>
+            Ingredients: <br />
+            @foreach (var ing in i.Ingredients)
+            {
+            <p>&#9;• @ing</p>
+        }
+            </p> <br />
+        </div>
+    }

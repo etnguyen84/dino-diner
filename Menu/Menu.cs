@@ -14,18 +14,18 @@ namespace DinoDiner.Menu
     {
 
         /// <summary>
-        /// Returns all available menu items as a list of strings
+        /// Returns all available menu items 
         /// </summary>
-        public List<string> AvailableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
-                List<string> menu = new List<string>();
-                menu.AddRange(AvailableEntrees);
-                menu.AddRange(AvailableSides);
-                menu.AddRange(AvailableDrinks);
-                menu.AddRange(AvailableCombos);
-                return menu;
+                List<IMenuItem> i = new List<IMenuItem>(AvailableEntrees);
+                i.AddRange(AvailableSides);
+                i.AddRange(AvailableDrinks);
+                i.AddRange(AvailableCombos);
+
+                return i;
             }
         }
 
@@ -33,75 +33,70 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Returns all available entrees as a list of strings
         /// </summary>
-        public List<string> AvailableEntrees
+        public List<Entree> AvailableEntrees
         {
             get
             {
-                List<string> entrees = new List<string>();
-                entrees.Add("Brontowurst");
-                entrees.Add("Dino-Nuggets");
-                entrees.Add("Prehistoric PB&J");
-                entrees.Add("Pterodactyl Wings");
-                entrees.Add("Steakosaurus Burger");
-                entrees.Add("T-Rex King Burger");
-                entrees.Add("Veloci-Wrap");
-
-                return entrees;
+                return new List<Entree>() {
+                    new Brontowurst(),
+                    new DinoNuggets(),
+                    new PrehistoricPBJ(),
+                    new PterodactylWings(),
+                    new SteakosaurusBurger(),
+                    new TRexKingBurger(),
+                    new VelociWrap()
+                };
             }
         }
 
 
         /// <summary>
-        /// Returns all available sides as a list of strings
+        /// Returns all available sides as a list
         /// </summary>
-        public List<string> AvailableSides
+        public List<Side> AvailableSides
         {
             get
             {
-                List<string> sides = new List<string>();
-                sides.Add("Friceritops");
-                sides.Add("Meteor Mac and Cheese");
-                sides.Add("Mezzorella Sticks");
-                sides.Add("Triceritots");
-                return sides;
+                return new List<Side>() {
+                    new Fryceritops(),
+                    new MeteorMacAndCheese(),
+                    new MezzorellaSticks(),
+                    new Triceritots()
+                };
             }
         }
 
 
         /// <summary>
-        /// Returns all available drinks as a list of strings
+        /// Returns all available drinks as a list
         /// </summary>
-        public List<string> AvailableDrinks
+        public List<Drink> AvailableDrinks
         {
             get
             {
-                List<string> drinks = new List<string>();
-                drinks.Add("Jurassic Java");
-                drinks.Add("Sodasaurus");
-                drinks.Add("TyrannoTea");
-                drinks.Add("Water");
-                return drinks;
+                return new List<Drink>() {
+                    new JurassicJava(),
+                    new Sodasaurus(),
+                    new Tyrannotea(),
+                    new Water()
+                };
             }
         }
 
         /// <summary>
-        /// Returns all available combos as a list of strings
+        /// Returns all available combos as a list
         /// </summary>
-        public List<string> AvailableCombos
+        public List<CretaceousCombo> AvailableCombos
         {
             get
             {
-                List<string> combos = new List<string>();
-                combos.Add("Brontowurst Combo");
-                combos.Add("Dino-Nuggets Combo");
-                combos.Add("Prehistoric PB&J Combo");
-                combos.Add("Pterodactyl Wings Combo");
-                combos.Add("Steakosaurus Burger Combo");
-                combos.Add("T-Rex King Burger Combo");
-                combos.Add("Veloci-Wrap Combo");
+                List<CretaceousCombo> combos = new List<CretaceousCombo>(AvailableEntrees.Count);
+                for (int i = 0; i < AvailableEntrees.Count; i++)
+                {
+                    combos.Add(new CretaceousCombo(AvailableEntrees[i]));
+                }
 
                 return combos;
-
             }
         }
 
@@ -112,10 +107,11 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (string s in AvailableMenuItems)
+            for (int i = 0; i < AvailableMenuItems.Count; i++)
             {
-                sb.Append(s + "\n");
+                sb.Append(AvailableMenuItems[i].ToString() + "\n");
             }
+
             return sb.ToString();
         }
 
