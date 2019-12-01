@@ -14,5 +14,24 @@ body {
 
 /* Style format for menu-item class, used on menu page to display menu items */
 .menu-item {
-    color: darkgreen;
+    color: darkblue;
+    padding:10px;
+}
+
+div.ingredient {
+    text-indent: 25px;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+form {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    padding: 10px;
+    float:right;
 }

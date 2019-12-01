@@ -13,14 +13,43 @@ namespace Website.Pages
         /// <summary>
         /// Menu variable for an instance of a menu to be in the html file
         /// </summary>
-        public Menu _menu { get; private set; }
+        public Menu _menu { get; private set; } = new Menu();
+
+        /// <summary>
+        /// search string
+        /// </summary>
+        [BindProperty]
+        public string search { get; set; }
+
+        /// <summary>
+        /// menu category filter
+        /// </summary>
+        [BindProperty]
+        public List<string> category { get; set; } = new List<string>();
+
+        /// <summary>
+        /// min price filter
+        /// </summary>
+        [BindProperty]
+        public double minPrice { get; set; }
+
+        /// <summary>
+        /// max price filter
+        /// </summary>
+        [BindProperty]
+        public double maxPrice { get; set; }
+
+        /// <summary>
+        /// list of excluded ingredients
+        /// </summary>
+        [BindProperty]
+        public List<string> exclusions { get; set; } = new List<string>();
 
         /// <summary>
         /// Onget function, automatically generated
         /// </summary>
         public void OnGet()
         {
-            _menu = new Menu();
         }
     }
 }

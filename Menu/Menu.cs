@@ -115,6 +115,26 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Returns a hashset of unique strings of potential ingredients
+        /// </summary>
+        public SortedSet<string> PossibleIngredients
+        {
+            get
+            {
+                SortedSet<string> possible = new SortedSet<string>();
+
+                foreach(IMenuItem item in AvailableMenuItems) {
+                    foreach(string i in item.Ingredients)
+                    {
+                        possible.Add(i);
+                    }
+                }
+
+                return possible;
+            }
+        }
+
 
     }
 }
